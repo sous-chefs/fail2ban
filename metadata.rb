@@ -7,6 +7,6 @@ version           "1.0.0"
 
 recipe "fail2ban", "Installs and configures fail2ban"
 
-%w{ ubuntu debian }.each do |os|
+%w{ ubuntu debian fedora }.each do |os|
   supports os
 end
