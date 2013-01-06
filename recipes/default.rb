@@ -27,6 +27,11 @@ end
     group "root"
     mode 0644
     notifies :restart, "service[fail2ban]"
+    variables(
+      :logfile => node['fail2ban']['logfile'],
+      :loglevel => node['fail2ban']['loglevel'],
+      :socket => node['fail2ban']['socket'],
+    )    
   end
 end
 
