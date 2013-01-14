@@ -31,7 +31,7 @@ backend = polling
 #
 # Destination email address used solely for the interpolations in
 # jail.{conf,local} configuration files.
-destemail = root@localhost
+destemail = <%= node['fail2ban']['email'] %>
 
 #
 # ACTIONS
