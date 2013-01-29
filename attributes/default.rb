@@ -16,4 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-default["fail2ban"]["email"] = 'root@localhost'
+# fail2ban.conf configuration options
+default['fail2ban']['loglevel'] = 3
+default['fail2ban']['logtarget'] = "/var/log/fail2ban.log"
+default['fail2ban']['socket'] = "/tmp/fail2ban.sock"
+
+# jail.conf configuration options
+default['fail2ban']['bantime'] = 300
+default['fail2ban']['maxretry'] = 5
+default['fail2ban']['email'] = 'root@localhost'
+default['fail2ban']['backend'] = 'polling'
