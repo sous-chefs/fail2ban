@@ -15,14 +15,14 @@
 #          4 = DEBUG
 # Values:  NUM  Default:  3
 #
-loglevel = 3
+loglevel = <%= node['fail2ban']['loglevel'] %>
 
 # Option:  logtarget
 # Notes.:  Set the log target. This could be a file, SYSLOG, STDERR or STDOUT.
 #          Only one log target can be specified.
 # Values:  STDOUT STDERR SYSLOG file  Default:  /var/log/fail2ban.log
 #
-logtarget = /var/log/fail2ban.log
+logtarget = <%= node['fail2ban']['logtarget'] %>
 
 # Option: socket
 # Notes.: Set the socket file. This is used to communicate with the daemon. Do
@@ -30,5 +30,4 @@ logtarget = /var/log/fail2ban.log
 #         communicate with the server afterwards.
 # Values: FILE  Default:  /tmp/fail2ban.sock
 #
-socket = /tmp/fail2ban.sock
-
+socket = <%= node['fail2ban']['socket'] %>

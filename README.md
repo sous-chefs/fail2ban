@@ -1,12 +1,17 @@
 Description
 ===========
 
-Installs and configures `fail2ban`, a utility that watches logs for failed login attempts and blocks repeat offenders with firewall rules.
+Installs and configures `fail2ban`, a utility that watches logs for failed login attempts 
+and blocks repeat offenders with firewall rules.
 
 Requirements
 ============
 
-A package named "fail2ban" must be available via the native package manager for the Platform.
+Platform
+--------
+
+* Debian, Ubuntu
+
 
 Recipes
 =======
@@ -14,7 +19,8 @@ Recipes
 default
 -------
 
-Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf` and `/etc/fail2ban/jail.conf`, and manages the fail2ban service.
+Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf` 
+and `/etc/fail2ban/jail.conf`, and manages the fail2ban service.
 
 Usage
 =====
