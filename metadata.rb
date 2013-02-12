@@ -7,6 +7,8 @@ version           "1.1.0"
 
 recipe "fail2ban", "Installs and configures fail2ban"
 
-%w{ ubuntu debian }.each do |os|
+depends "yum"
+
+%w{ debian ubuntu redhat centos fedora scientific amazon oracle}.each do |os|
   supports os
 end

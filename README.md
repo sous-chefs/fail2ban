@@ -2,8 +2,8 @@ Description
 ===========
 
 Installs and configures `fail2ban`, a utility that watches logs for failed login attempts 
-and blocks repeat offenders with firewall rules.  On Redhat/Fedora systems this cookbook
-will enable the EPEL repository in order to retrieve the fail2ban package.
+and blocks repeat offenders with firewall rules.  On Redhat systems this cookbook will
+enable the EPEL repository in order to retrieve the fail2ban package.
 
 Requirements
 ============
