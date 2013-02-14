@@ -1,3 +1,6 @@
+## v1.2.0:
+ * [COOK-2411] - Add support for redhat-family distributions
+
 ## v1.1.0:
 
 * [COOK-2291] - Add additional tunables to the fail2ban cookbook

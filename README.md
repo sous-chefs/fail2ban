@@ -11,6 +11,7 @@ Platform
 --------
 
 * Debian, Ubuntu
+* RHEL/CentOS/Scientific
 
 
 Recipes
@@ -22,17 +23,25 @@ default
 Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf` 
 and `/etc/fail2ban/jail.conf`, and manages the fail2ban service.
 
+redhat
+------
+
+Because fail2ban is not available in the redhat/centos repos, this recipe first
+includes the yum::epel recipe, subscribing the host to the epel yum repository.
+It then includes the default recipe and proceeds as normal.
+
 Usage
 =====
 
-Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
+Typically, include `recipe[fail2ban]` in a base role applied to all nodes. For
+RedHat-family hosts, include `recipe[fail2ban::redhat]` instead.
 
 License and Author
 ==================
 
 Author:: Joshua Timberman
 
-Copyright:: 2009-2011, Opscode, Inc
+Copyright:: 2009-2013, Opscode, Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
