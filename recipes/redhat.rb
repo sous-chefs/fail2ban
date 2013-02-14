@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: fail2ban
-# Recipe:: default
+# Recipe:: redhat
 #
 # Copyright 2009-2013, Opscode, Inc.
 #
@@ -17,21 +17,9 @@
 # limitations under the License.
 #
 
-package "fail2ban" do
-  action :upgrade
+case node['platform_family']
+when "rhel"
+  include_recipe "yum::epel"
 end
 
-%w{ fail2ban jail }.each do |cfg|
-  template "/etc/fail2ban/#{cfg}.conf" do
-    source "#{cfg}.conf.erb"
-    owner "root"
-    group "root"
-    mode 0644
-    notifies :restart, "service[fail2ban]"
-  end
-end
-
-service "fail2ban" do
-  supports [ :status => true, :restart => true ]
-  action [ :enable, :start ]
-end
+include_recipe "fail2ban::default"
