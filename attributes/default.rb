@@ -18,8 +18,13 @@
 
 # fail2ban.conf configuration options
 default['fail2ban']['loglevel'] = 3
-default['fail2ban']['logtarget'] = "/var/log/fail2ban.log"
 default['fail2ban']['socket'] = "/tmp/fail2ban.sock"
+default['fail2ban']['logtarget'] = "/var/log/fail2ban.log"
+
+# These values will only be printed to fail2ban.conf
+# if node['fail2ban']['logtarget'] is set to 'SYSLOG'
+default['fail2ban']['syslog_target'] = "/var/log/fail2ban.log"
+default['fail2ban']['syslog_facility'] = "1"
 
 # jail.conf configuration options
 default['fail2ban']['bantime'] = 300
