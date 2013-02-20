@@ -23,6 +23,10 @@ loglevel = <%= node['fail2ban']['loglevel'] %>
 # Values:  STDOUT STDERR SYSLOG file  Default:  /var/log/fail2ban.log
 #
 logtarget = <%= node['fail2ban']['logtarget'] %>
+<% if node['fail2ban']['logtarget'] == "SYSLOG" -%>
+syslog-target = <%= node['fail2ban']['syslog_target'] %>
+syslog-facility = <%= node['fail2ban']['syslog_facility'] %>
+<% end -%>
 
 # Option: socket
 # Notes.: Set the socket file. This is used to communicate with the daemon. Do
