@@ -1,3 +1,9 @@
+## v1.2.0:
+
+* [COOK-2292] - Add fail2ban support for RHEL using EPEL
+* [COOK-2426] - Fail2ban cookbook needs syslog tunables in config file
+* Development repository only: test kitchen 1.0.alpha support
+
 ## v1.1.0:
 
 * [COOK-2291] - Add additional tunables to the fail2ban cookbook
