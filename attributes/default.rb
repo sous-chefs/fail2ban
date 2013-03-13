@@ -2,7 +2,7 @@
 # Cookbook Name:: fail2ban
 # Attributes:: default
 #
-# Copyright 2010, Opscode, Inc.
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 # fail2ban.conf configuration options
 default['fail2ban']['loglevel'] = 3
-default['fail2ban']['socket'] = "/tmp/fail2ban.sock"
+default['fail2ban']['socket'] = "/var/run/fail2ban/fail2ban.sock"
 default['fail2ban']['logtarget'] = "/var/log/fail2ban.log"
 
 # These values will only be printed to fail2ban.conf
