@@ -2,7 +2,7 @@
 #
 # Author: Cyril Jaquier
 #
-# $Revision: 494 $
+# $Revision$
 #
 
 [Definition]
@@ -32,6 +32,6 @@ syslog-facility = <%= node['fail2ban']['syslog_facility'] %>
 # Notes.: Set the socket file. This is used to communicate with the daemon. Do
 #         not remove this file when Fail2ban runs. It will not be possible to
 #         communicate with the server afterwards.
-# Values: FILE  Default:  /tmp/fail2ban.sock
+# Values: FILE  Default:  /var/run/fail2ban/fail2ban.sock
 #
 socket = <%= node['fail2ban']['socket'] %>
