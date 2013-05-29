@@ -36,6 +36,10 @@ end
   end
 end
 
+template '/etc/fail2ban/filter.d/nginx.conf' do
+  source 'nginx.conf.erb'
+end
+
 service "fail2ban" do
   supports [ :status => true, :restart => true ]
   action [ :enable, :start ]
