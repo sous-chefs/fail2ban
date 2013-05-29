@@ -62,12 +62,12 @@ action_ = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol
 
 # ban & send an e-mail with whois report to the destemail.
 action_mw = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
-              %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s", protocol="%(protocol)s", chain="%(chain)s"]
+%(mta)s-whois[name=%(__name__)s, dest="%(destemail)s", protocol="%(protocol)s", chain="%(chain)s"]
 
 # ban & send an e-mail with whois report and relevant log lines
 # to the destemail.
 action_mwl = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
-               %(mta)s-whois-lines[name=%(__name__)s, dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
+%(mta)s-whois-lines[name=%(__name__)s, dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
 
 # Choose default action.  To change, just override value of 'action' with the
 # interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local
@@ -175,6 +175,49 @@ port     = http,https
 filter   = apache-overflows
 logpath  = /var/log/apache*/*error.log
 maxretry = 2
+
+## Goal: Filter on IP frequency
+##   copypasta - http://snippets.aktagon.com/snippets/554-How-to-Secure-an-nginx-Server-with-Fail2Ban
+
+[nginx-auth]
+enabled = true
+filter = nginx-auth
+action = iptables-multiport[name=NoAuthFailures, port="http,https"]
+logpath = /var/log/nginx*/*error*.log
+bantime = 600 # 10 minutes
+maxretry = 6
+
+[nginx-login]
+enabled = true
+filter = nginx-login
+action = iptables-multiport[name=NoLoginFailures, port="http,https"]
+logpath = /var/log/nginx*/*access*.log
+bantime = 600 # 10 minutes
+maxretry = 6
+
+[nginx-badbots]
+enabled  = true
+filter = apache-badbots
+action = iptables-multiport[name=BadBots, port="http,https"]
+logpath = /var/log/nginx*/*access*.log
+bantime = 86400 # 1 day
+maxretry = 1
+
+[nginx-noscript]
+enabled = true
+action = iptables-multiport[name=NoScript, port="http,https"]
+filter = nginx-noscript
+logpath = /var/log/nginx*/*access*.log
+maxretry = 6
+bantime  = 86400 # 1 day
+
+[nginx-proxy]
+enabled = true
+action = iptables-multiport[name=NoProxy, port="http,https"]
+filter = nginx-proxy
+logpath = /var/log/nginx*/*access*.log
+maxretry = 0
+bantime  = 86400 # 1 day
 
 #
 # FTP servers
@@ -311,4 +354,3 @@ port     = domain,953
 protocol = tcp
 filter   = named-refused
 logpath  = /var/log/named/security.log
-
