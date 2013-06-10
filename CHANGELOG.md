@@ -1,3 +1,11 @@
+## v1.2.2:
+
+### Bug
+
+- [COOK-2588]: Fail2ban needs to store the socket in the correct location
+- [COOK-2592]: fail2ban: Update jail file template to match current
+  config file
+
 ## v1.2.0:
 
 * [COOK-2292] - Add fail2ban support for RHEL using EPEL
