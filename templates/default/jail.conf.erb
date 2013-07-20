@@ -95,7 +95,7 @@ action = %(action_)s
 enabled  = true
 port     = ssh
 filter   = sshd
-logpath  = /var/log/<% if node['platform_family'] == 'rhel' -%>secure<% else -%>auth.log<% end -%>
+logpath  = /var/log/<%= @auth_log -%>
 maxretry = 6
 
 [dropbear]
@@ -117,7 +117,7 @@ filter   = pam-generic
 port     = all
 banaction = iptables-allports
 port     = anyport
-logpath  = /var/log/<% if node['platform_family'] == 'rhel' -%>secure<% else -%>auth.log<% end -%>
+logpath  = /var/log/<%= @auth_log -%>
 maxretry = 6
 
 [xinetd-fail]
@@ -135,7 +135,7 @@ maxretry  = 2
 enabled  = false
 port     = ssh
 filter   = sshd-ddos
-logpath  = /var/log/<% if node['platform_family'] == 'rhel' -%>secure<% else -%>auth.log<% end -%>
+logpath  = /var/log/<%= @auth_log -%>
 maxretry = 6
 
 #
@@ -207,7 +207,7 @@ maxretry = 6
 enabled  = false
 port     = ftp,ftp-data,ftps,ftps-data
 filter   = pure-ftpd
-logpath  = /var/log/<% if node['platform_family'] == 'rhel' -%>secure<% else -%>auth.log<% end -%>
+logpath  = /var/log/<%= @auth_log -%>
 maxretry = 6
 
 
@@ -216,7 +216,7 @@ maxretry = 6
 enabled  = false
 port     = ftp,ftp-data,ftps,ftps-data
 filter   = wuftpd
-logpath  = /var/log/<% if node['platform_family'] == 'rhel' -%>secure<% else -%>auth.log<% end -%>
+logpath  = /var/log/<%= @auth_log -%>
 maxretry = 6
 
 
