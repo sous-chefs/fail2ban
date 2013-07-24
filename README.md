@@ -37,6 +37,14 @@ Usage
 
 Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
 
+Particular those related to rsyslog
+=====
+
+If you are using rsyslog parameter "$RepeatedMsgReduction on" in rsyslog.conf file
+then you can get "Last message repeated N times" in system log file (for example auth.log).
+And it will affect the work of fail2ban, so that fail2ban will not work because the internal counter maxretry will not extend their
+Then you can change parameter "$RepeatedMsgReduction off" in rsyslog.conf file for maximum accuracy of maximum failed login attempts
+
 License and Author
 ==================
 
