@@ -45,6 +45,8 @@ then you can get "Last message repeated N times" in system log file (for example
 And it will affect the work of fail2ban, so that fail2ban will not work because the internal counter maxretry will not extend their
 Then you can change parameter "$RepeatedMsgReduction off" in rsyslog.conf file for maximum accuracy of maximum failed login attempts
 
+This rsyslog parameter is default ON for ubuntu 12.04 LTS for example.
+
 License and Author
 ==================
 
