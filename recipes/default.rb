@@ -33,6 +33,9 @@ end
     group "root"
     mode 0644
     notifies :restart, "service[fail2ban]"
+    variables(
+      :auth_log => node['platform_family'] == 'rhel' ? "secure" : 'auth.log'
+    )
   end
 end
 

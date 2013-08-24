@@ -9,6 +9,6 @@ recipe "fail2ban", "Installs and configures fail2ban"
 
 depends "yum"
 
-%w{ debian ubuntu redhat centos fedora scientific amazon oracle}.each do |os|
+%w{ debian ubuntu redhat centos fedora scientific amazon oracle }.each do |os|
   supports os
 end
