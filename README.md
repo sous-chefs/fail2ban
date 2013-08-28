@@ -1,7 +1,7 @@
 Description
 ===========
 
-Installs and configures `fail2ban`, a utility that watches logs for failed login attempts 
+Installs and configures `fail2ban`, a utility that watches logs for failed login attempts
 and blocks repeat offenders with firewall rules.  On Redhat systems this cookbook will
 enable the EPEL repository in order to retrieve the fail2ban package.
 
@@ -29,7 +29,7 @@ Recipes
 default
 -------
 
-Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf` 
+Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf`
 and `/etc/fail2ban/jail.conf`, and manages the fail2ban service.
 
 Usage
