@@ -3,6 +3,17 @@ fail2ban Cookbook CHANGELOG
 This file is used to list changes made in each version of the fail2ban cookbook.
 
 
+v1.2.4
+------
+### New Feature
+- **[COOK-3383](https://tickets.opscode.com/browse/COOK-3383)** - Add clarifying caveat about rsyslog in README
+
+### Bug
+- **[COOK-3249](https://tickets.opscode.com/browse/COOK-3249)** - Fix default `jail.conf` on CentOS
+
+### Improvement
+- **[COOK-2748](https://tickets.opscode.com/browse/COOK-2748)** - Handle `/etc.init.d/fail2ban status` for older versions
+
 v1.2.2
 ------
 ### Bug
