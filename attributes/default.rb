@@ -58,7 +58,7 @@ default['fail2ban']['services'] = [
         "filter" => "sshd",
         "logpath" => "/var/log/dropbear",
         "protocol" => "",
-        "banaction" => ""
+        "banaction" => "",
         "maxretry" => "6"
     },
 ]
