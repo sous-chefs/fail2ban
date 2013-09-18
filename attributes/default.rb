@@ -36,3 +36,29 @@ default['fail2ban']['banaction'] = 'iptables-multiport'
 default['fail2ban']['mta'] = 'sendmail'
 default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
+
+
+
+
+default['fail2ban']['services'] = [
+    {
+        "name" => "ssh",
+        "enabled" => "true",
+        "port" => "ssh",
+        "filter" => "None",
+        "logpath" => "/var/log/#{ @auth_log }",
+        "protocol" => "",
+        "banaction" => "",
+        "maxretry" => "6"
+     },
+    {
+        "name" => "dropbear",
+        "enabled" => "false",
+        "port" => "ssh",
+        "filter" => "sshd",
+        "logpath" => "/var/log/dropbear",
+        "protocol" => "",
+        "banaction" => ""
+        "maxretry" => "6"
+    },
+]

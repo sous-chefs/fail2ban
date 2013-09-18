@@ -311,3 +311,19 @@ port     = domain,953
 protocol = tcp
 filter   = named-refused
 logpath  = /var/log/named/security.log
+
+
+
+
+<% @node['fail2ban']['services'].each do |service| %>
+[<%= service['name'] %>]
+
+enabled = <%= service['enabled'] %>
+port = <%= service['port'] %>
+protocol = <%= service['protocol'] %>
+filter = <%= service['filter'] %>
+logpath = <%= service['logpath'] %>
+banaction = <%= service['banaction'] %>
+maxretry = <%= service['maxretry'] %>
+<% end %>
+
