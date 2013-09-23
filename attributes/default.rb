@@ -48,12 +48,5 @@ default['fail2ban']['services'] = [
         "filter" => "sshd",
         "logpath" => "#{node['fail2ban']['auth_log']}",
         "maxretry" => "6"
-     },
-    {
-        "name" => "postfix",
-        "enabled" => "true",
-        "port" => "smtp, ssmtp",
-        "filter" => "postfix",
-        "logpath" => "/var/log/mail.log"
      }
 ]
