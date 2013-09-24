@@ -36,8 +36,12 @@ default['fail2ban']['banaction'] = 'iptables-multiport'
 default['fail2ban']['mta'] = 'sendmail'
 default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
-default['fail2ban']['auth_log'] = '/var/log/auth.log'
 
+if node['platform_family'] == 'rhel'
+  default['fail2ban']['auth_log'] = '/var/log/secure'
+else
+  default['fail2ban']['auth_log'] = '/var/log/auth.log'
+end
 
 
 default['fail2ban']['services'] = [
