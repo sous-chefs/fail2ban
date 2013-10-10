@@ -37,20 +37,27 @@ default['fail2ban']['mta'] = 'sendmail'
 default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
 
-if node['platform_family'] == 'rhel'
+case node['platform_family']
+when 'rhel'
   default['fail2ban']['auth_log'] = '/var/log/secure'
-else
+when 'debian'
   default['fail2ban']['auth_log'] = '/var/log/auth.log'
 end
 
 
-default['fail2ban']['services'] = [
-    {
-        "name" => "ssh",
+default['fail2ban']['services'] = {
+  'ssh' => {
         "enabled" => "true",
         "port" => "ssh",
         "filter" => "sshd",
-        "logpath" => "#{node['fail2ban']['auth_log']}",
+        "logpath" => node['fail2ban']['auth_log'],
+        "maxretry" => "6"
+     },
+  'smtp' => {
+        "enabled" => "true",
+        "port" => "smpt",
+        "filter" => "smtp",
+        "logpath" => node['fail2ban']['auth_log'],
         "maxretry" => "6"
      }
-]
+}

@@ -91,19 +91,20 @@ action = %(action_)s
 # action, port, logpath, etc) in that section within jail.local
 
 
-<% @node['fail2ban']['services'].each do |service| %>
-[<%= service['name'] %>]
+<% @node['fail2ban']['services'].each do |service, param| %>
+[<%= service %>]
 
-enabled = <%= service['enabled'] %>
-port = <%= service['port'] %>
-filter = <%= service['filter'] %>
-logpath = <%= service['logpath'] %>
-maxretry = <%= service['maxretry'] %>
-<% if service['protocol'] %>
-protocol = <%= service['protocol'] %>
+enabled = <%= param['enabled'] %>
+port = <%= param['port'] %>
+filter = <%= param['filter'] %>
+logpath = <%= param['logpath'] %>
+maxretry = <%= param['maxretry'] %>
+<% if param['protocol'] %>
+protocol = <%= param['protocol'] %>
 <% end %>
-<% if service['banaction'] %>
-banaction = <%= service['banaction'] %>
+<% if param['banaction'] %>
+banaction = <%= param['banaction'] %>
 <% end %>
+
 <% end %>
 
