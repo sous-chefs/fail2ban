@@ -37,6 +37,43 @@ Usage
 
 Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
 
+Attributes
+=====
+
+This cookbook makes use of a hash to compile the jail.local-file:
+
+```
+default['fail2ban']['services'] = {
+  'ssh' => {
+        "enabled" => "true",
+        "port" => "ssh",
+        "filter" => "sshd",
+        "logpath" => node['fail2ban']['auth_log'],
+        "maxretry" => "6"
+     },
+  'smtp' => {
+        "enabled" => "true",
+        "port" => "smpt",
+        "filter" => "smtp",
+        "logpath" => node['fail2ban']['auth_log'],
+        "maxretry" => "6"
+     }
+}
+```
+
+The following attributes can be used per service:
+
+
+* enabled
+* port
+* filter
+* logpath
+* maxretry
+* protocol
+* banaction
+
+
+
 Particular those related to rsyslog
 =====
 

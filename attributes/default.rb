@@ -36,3 +36,21 @@ default['fail2ban']['banaction'] = 'iptables-multiport'
 default['fail2ban']['mta'] = 'sendmail'
 default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
+
+case node['platform_family']
+when 'rhel'
+  default['fail2ban']['auth_log'] = '/var/log/secure'
+when 'debian'
+  default['fail2ban']['auth_log'] = '/var/log/auth.log'
+end
+
+
+default['fail2ban']['services'] = {
+  'ssh' => {
+        'enabled' => 'true',
+        'port' => 'ssh',
+        'filter' => 'sshd',
+        'logpath' => node['fail2ban']['auth_log'],
+        'maxretry' => '6'
+     }
+}

@@ -26,18 +26,22 @@ package "fail2ban" do
   action :upgrade
 end
 
-%w{ fail2ban jail }.each do |cfg|
-  template "/etc/fail2ban/#{cfg}.conf" do
-    source "#{cfg}.conf.erb"
+template "/etc/fail2ban/fail2ban.conf" do
+    source "fail2ban.conf.erb"
     owner "root"
     group "root"
     mode 0644
     notifies :restart, "service[fail2ban]"
-    variables(
-      :auth_log => node['platform_family'] == 'rhel' ? "secure" : 'auth.log'
-    )
-  end
 end
+
+template "/etc/fail2ban/jail.local" do
+    source "jail.conf.erb"
+    owner "root"
+    group "root"
+    mode 0644
+    notifies :restart, "service[fail2ban]"
+end
+
 
 service "fail2ban" do
   supports [ :status => true, :restart => true ]
