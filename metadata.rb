@@ -7,7 +7,7 @@ version           "2.0.3"
 
 recipe "fail2ban", "Installs and configures fail2ban"
 
-depends "yum", '< 3'
+depends "yum", '< 3.0'
 
 %w{ debian ubuntu redhat centos fedora scientific amazon oracle }.each do |os|
   supports os
