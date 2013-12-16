@@ -3,6 +3,13 @@ fail2ban Cookbook CHANGELOG
 This file is used to list changes made in each version of the fail2ban cookbook.
 
 
+v2.1.0
+------
+Updating for cookbook yum ~> 3.0
+Fixing style or rubocop
+Updating test bits
+
+
 v2.0.4
 ------
 fixing metadata version error. locking to 3.0
