@@ -40,7 +40,7 @@ Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
 Attributes
 =====
 
-This cookbook makes use of a hash to compile the jail.local-file:
+This cookbook makes use of a hash to compile the jail.local-file and filter config files:
 
 ```
 default['fail2ban']['services'] = {
@@ -71,6 +71,17 @@ The following attributes can be used per service:
 * maxretry
 * protocol
 * banaction
+
+Creating custom fail2ban filters: 
+
+```
+default['fail2ban']['filters'] = {
+  'nginx-proxy' => {
+        "failregex" => ["^<HOST> -.*GET http.*"],
+        "ignoreregex" => []
+     },
+}
+```
 
 
 
