@@ -24,6 +24,14 @@ package 'fail2ban' do
   action :upgrade
 end
 
+node['fail2ban']['filters'].each do |name, options|
+  template "/etc/fail2ban/filter.d/#{name}.conf" do
+    source "filter.conf.erb"
+    variables(:failregex => [options['failregex']].flatten, :ignoreregex => [options['ignoreregex']].flatten)
+    notifies :restart, 'service[fail2ban]'
+  end
+end
+
 template '/etc/fail2ban/fail2ban.conf' do
   source 'fail2ban.conf.erb'
   owner 'root'

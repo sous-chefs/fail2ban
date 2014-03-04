@@ -38,6 +38,10 @@ default['fail2ban']['mta'] = 'sendmail'
 default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
 
+# custom filters.
+# format: { name: { failregex: '', ignoreregex: ''} }
+default['fail2ban']['filters'] = {}
+
 case node['platform_family']
 when 'rhel'
   default['fail2ban']['auth_log'] = '/var/log/secure'
