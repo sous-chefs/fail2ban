@@ -53,7 +53,7 @@ default['fail2ban']['services'] = {
      },
   'smtp' => {
         "enabled" => "true",
-        "port" => "smpt",
+        "port" => "smtp",
         "filter" => "smtp",
         "logpath" => node['fail2ban']['auth_log'],
         "maxretry" => "6"
