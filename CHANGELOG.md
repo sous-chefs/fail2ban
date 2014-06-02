@@ -2,6 +2,10 @@ fail2ban Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+v2.1.3
+------
+### Improvement
+- **[COOK-4690](https://tickets.opscode.com/browse/COOK-4690)** - Don't force yum cookbooks as dependency
 
 v2.1.2
 ------
