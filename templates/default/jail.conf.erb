@@ -98,7 +98,9 @@ enabled = <%= param['enabled'] %>
 port = <%= param['port'] %>
 filter = <%= param['filter'] %>
 logpath = <%= param['logpath'] %>
+<% if param['maxretry'] %>
 maxretry = <%= param['maxretry'] %>
+<% end %>
 <% if param['protocol'] %>
 protocol = <%= param['protocol'] %>
 <% end %>
