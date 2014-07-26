@@ -55,3 +55,10 @@ default['fail2ban']['services'] = {
         'maxretry' => '6'
      }
 }
+
+case node['platform_family']
+when 'rhel', 'fedora'
+  default['fail2ban']['services']['ssh-iptables'] = {
+    'enabled' => false
+  }
+end
