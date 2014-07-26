@@ -99,6 +99,12 @@ enabled = <%= param['enabled'] %>
 port = <%= param['port'] %>
 filter = <%= param['filter'] %>
 logpath = <%= param['logpath'] %>
+<% if param['findtime'] %>
+findtime = <%= param['findtime'] %>
+<% end %>
+<% if param['bantime'] %>
+bantime = <%= param['bantime'] %>
+<% end %>
 <% if param['maxretry'] %>
 maxretry = <%= param['maxretry'] %>
 <% end %>
