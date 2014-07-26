@@ -96,26 +96,12 @@ action = %(<%= node['fail2ban']['action'] %>)s
 [<%= service %>]
 
 enabled = <%= param['enabled'] %>
-port = <%= param['port'] %>
-filter = <%= param['filter'] %>
-logpath = <%= param['logpath'] %>
-<% if param['findtime'] %>
-findtime = <%= param['findtime'] %>
+<% %w{ port filter logpath findtime bantime maxretry protocol action banaction }.each do |key| %>
+
+<% if param[key] %>
+<%=key%> = <%= param[key] %>
 <% end %>
-<% if param['bantime'] %>
-bantime = <%= param['bantime'] %>
-<% end %>
-<% if param['maxretry'] %>
-maxretry = <%= param['maxretry'] %>
-<% end %>
-<% if param['protocol'] %>
-protocol = <%= param['protocol'] %>
-<% end %>
-<% if param['action'] %>
-action = %(<%= param['action'] %>)s
-<% end %>
-<% if param['banaction'] %>
-banaction = <%= param['banaction'] %>
+
 <% end %>
 
 <% end %>
