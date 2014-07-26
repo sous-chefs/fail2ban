@@ -89,11 +89,9 @@ action = %(<%= node['fail2ban']['action'] %>)s
 
 enabled = <%= param['enabled'] %>
 <% %w{ port filter logpath findtime bantime maxretry protocol action banaction }.each do |key| %>
-
 <% if param[key] %>
 <%=key%> = <%= param[key] %>
 <% end %>
-
 <% end %>
 
 <% end %>
