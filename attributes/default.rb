@@ -28,6 +28,7 @@ default['fail2ban']['syslog_facility'] = '1'
 
 # jail.conf configuration options
 default['fail2ban']['ignoreip'] = '127.0.0.1/8'
+default['fail2ban']['findtime'] = 600
 default['fail2ban']['bantime'] = 300
 default['fail2ban']['maxretry'] = 5
 default['fail2ban']['backend'] = 'polling'
