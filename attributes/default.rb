@@ -40,7 +40,7 @@ default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
 
 case node['platform_family']
-when 'rhel'
+when 'rhel', 'fedora'
   default['fail2ban']['auth_log'] = '/var/log/secure'
 when 'debian'
   default['fail2ban']['auth_log'] = '/var/log/auth.log'
