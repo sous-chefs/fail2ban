@@ -3,7 +3,7 @@ maintainer        'Opscode, Inc.'
 maintainer_email  'cookbooks@opscode.com'
 license           'Apache 2.0'
 description       'Installs and configures fail2ban'
-version           '2.1.3'
+version           '2.2.0'
 
 recipe 'fail2ban', 'Installs and configures fail2ban'
 

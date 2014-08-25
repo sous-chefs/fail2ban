@@ -2,6 +2,11 @@ fail2ban Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+v2.2.0
+------
+- #15 - Fix small typo in README.md for smtp
+- #16 - Support custom fail2ban filters
+- #21 - Service and defaults improvements, Fedora support
 
 v2.1.2
 ------
