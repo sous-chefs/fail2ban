@@ -1,15 +1,10 @@
 # Fail2Ban configuration file.
 #
-# This file was composed for Debian systems from the original one
-#  provided now under /usr/share/doc/fail2ban/examples/jail.conf
-#  for additional examples.
-#
-# To avoid merges during upgrades DO NOT MODIFY THIS FILE
-# and rather provide your changes in /etc/fail2ban/jail.local
+# The configuration here inherits from /etc/fail2ban/jail.conf. Any setting
+# omitted here will take it's value from that file
 #
 # Author: Yaroslav O. Halchenko <debian@onerussian.com>
 #
-# $Revision$
 #
 
 # The DEFAULT allows a global definition of the options. They can be overridden
@@ -19,6 +14,7 @@
 
 # "ignoreip" can be an IP address, a CIDR mask or a DNS host
 ignoreip = <%= node['fail2ban']['ignoreip']  %>
+findtime = <%= node['fail2ban']['findtime'] %>
 bantime  = <%= node['fail2ban']['bantime'] %>
 maxretry = <%= node['fail2ban']['maxretry'] %>
 
@@ -78,14 +74,11 @@ action = %(<%= node['fail2ban']['action'] %>)s
 # JAILS
 #
 
-# Next jails corresponds to the standard configuration in Fail2ban 0.6 which
-# was shipped in Debian. Enable any defined here jail by including
+# Next jails can inherit from the configuration in /etc/fail2ban/jail.conf.
+# Enable any defined in that file jail by including
 #
 # [SECTION_NAME]
 # enabled = true
-
-#
-# in /etc/fail2ban/jail.local.
 #
 # Optionally you may override any other parameter (e.g. banaction,
 # action, port, logpath, etc) in that section within jail.local
@@ -95,18 +88,13 @@ action = %(<%= node['fail2ban']['action'] %>)s
 [<%= service %>]
 
 enabled = <%= param['enabled'] %>
-port = <%= param['port'] %>
-filter = <%= param['filter'] %>
-logpath = <%= param['logpath'] %>
-maxretry = <%= param['maxretry'] %>
-<% if param['protocol'] %>
-protocol = <%= param['protocol'] %>
+<% %w{ port filter logpath findtime bantime maxretry protocol banaction }.each do |key| %>
+<% if param[key] %>
+<%=key%> = <%= param[key] %>
+<% end %>
 <% end %>
 <% if param['action'] %>
 action = %(<%= param['action'] %>)s
-<% end %>
-<% if param['banaction'] %>
-banaction = <%= param['banaction'] %>
 <% end %>
 
 <% end %>

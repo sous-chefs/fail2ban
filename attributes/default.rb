@@ -28,6 +28,7 @@ default['fail2ban']['syslog_facility'] = '1'
 
 # jail.conf configuration options
 default['fail2ban']['ignoreip'] = '127.0.0.1/8'
+default['fail2ban']['findtime'] = 600
 default['fail2ban']['bantime'] = 300
 default['fail2ban']['maxretry'] = 5
 default['fail2ban']['backend'] = 'polling'
@@ -43,7 +44,7 @@ default['fail2ban']['chain'] = 'INPUT'
 default['fail2ban']['filters'] = {}
 
 case node['platform_family']
-when 'rhel'
+when 'rhel', 'fedora'
   default['fail2ban']['auth_log'] = '/var/log/secure'
 when 'debian'
   default['fail2ban']['auth_log'] = '/var/log/auth.log'
@@ -58,3 +59,10 @@ default['fail2ban']['services'] = {
         'maxretry' => '6'
      }
 }
+
+case node['platform_family']
+when 'rhel', 'fedora'
+  default['fail2ban']['services']['ssh-iptables'] = {
+    'enabled' => false
+  }
+end
