@@ -20,6 +20,7 @@
 default['fail2ban']['loglevel'] = 3
 default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
 default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'
+default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'
 
 # These values will only be printed to fail2ban.conf
 # if node['fail2ban']['logtarget'] is set to 'SYSLOG'

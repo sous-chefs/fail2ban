@@ -35,3 +35,10 @@ syslog-facility = <%= node['fail2ban']['syslog_facility'] %>
 # Values: FILE  Default:  /var/run/fail2ban/fail2ban.sock
 #
 socket = <%= node['fail2ban']['socket'] %>
+
+# Option: pidfile
+# Notes.: Set the PID file. This is used to store the process ID of the
+#         fail2ban server.
+# Values: [ FILE ]  Default: /var/run/fail2ban/fail2ban.pid
+#
+pidfile = <%= node['fail2ban']['pidfile'] %>
