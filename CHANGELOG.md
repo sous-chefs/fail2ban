@@ -11,7 +11,7 @@ v2.2.0
 v2.1.2
 ------
 ### Improvement
-- **[COOK-3899](https://tickets.opscode.com/browse/COOK-3899)** - Allow action override in service block
+- **[COOK-3899](https://tickets.chef.io/browse/COOK-3899)** - Allow action override in service block
 
 
 v2.1.0
@@ -39,13 +39,13 @@ v2.0.0
 v1.2.4
 ------
 ### New Feature
-- **[COOK-3383](https://tickets.opscode.com/browse/COOK-3383)** - Add clarifying caveat about rsyslog in README
+- **[COOK-3383](https://tickets.chef.io/browse/COOK-3383)** - Add clarifying caveat about rsyslog in README
 
 ### Bug
-- **[COOK-3249](https://tickets.opscode.com/browse/COOK-3249)** - Fix default `jail.conf` on CentOS
+- **[COOK-3249](https://tickets.chef.io/browse/COOK-3249)** - Fix default `jail.conf` on CentOS
 
 ### Improvement
-- **[COOK-2748](https://tickets.opscode.com/browse/COOK-2748)** - Handle `/etc.init.d/fail2ban status` for older versions
+- **[COOK-2748](https://tickets.chef.io/browse/COOK-2748)** - Handle `/etc.init.d/fail2ban status` for older versions
 
 v1.2.2
 ------
