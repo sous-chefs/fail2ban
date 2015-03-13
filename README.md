@@ -21,7 +21,7 @@ Cookbooks
 ---------
 
 * yum
-
+* yum-epel'
 
 Recipes
 =======
@@ -72,7 +72,7 @@ The following attributes can be used per service:
 * protocol
 * banaction
 
-Creating custom fail2ban filters: 
+Creating custom fail2ban filters:
 
 ```
 default['fail2ban']['filters'] = {
