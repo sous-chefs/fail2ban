@@ -36,7 +36,7 @@ template '/etc/fail2ban/fail2ban.conf' do
   source 'fail2ban.conf.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode '0644'
   notifies :restart, 'service[fail2ban]'
 end
 
@@ -44,7 +44,7 @@ template '/etc/fail2ban/jail.local' do
   source 'jail.conf.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode '0644'
   notifies :restart, 'service[fail2ban]'
 end
 
