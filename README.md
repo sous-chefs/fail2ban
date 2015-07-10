@@ -71,6 +71,7 @@ The following attributes can be used per service:
 * maxretry
 * protocol
 * banaction
+* bantime
 
 Creating custom fail2ban filters:
 
