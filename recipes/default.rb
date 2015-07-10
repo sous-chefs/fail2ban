@@ -21,7 +21,7 @@
 include_recipe 'yum-epel' if platform_family?('rhel')
 
 package 'fail2ban' do
-  action :upgrade
+  action :install
 end
 
 node['fail2ban']['filters'].each do |name, options|
