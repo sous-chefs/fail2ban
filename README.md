@@ -1,5 +1,8 @@
-Description
-===========
+fail2ban Cookbook
+=================
+
+[![Build Status](https://travis-ci.org/opscode-cookbooks/fail2ban.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/fail2ban)
+[![Cookbook Version](https://img.shields.io/cookbook/v/fail2ban.svg)](https://supermarket.chef.io/cookbooks/fail2ban)
 
 Installs and configures `fail2ban`, a utility that watches logs for failed login attempts
 and blocks repeat offenders with firewall rules.  On Redhat systems this cookbook will
@@ -10,11 +13,11 @@ Requirements
 
 Chef version 0.10.10+ and Ohai 0.6.12+ are required.
 
-Platform
---------
+Platforms
+---------
 
-* Debian, Ubuntu
-* Red Hat Enterprise Linux (CentOS/Amazon/Scientific/Oracle)
+* Debian/Ubuntu
+* RHEL/CentOS/Scientific/Amazon/Oracle
 * Fedora
 
 Cookbooks
@@ -99,7 +102,7 @@ This rsyslog parameter is default ON for ubuntu 12.04 LTS for example.
 License and Author
 ==================
 
-Author:: Joshua Timberman
+Author:: Joshua Timberman (<joshua@chef.io>)
 
 Copyright:: 2009-2015, Chef Software, Inc
 
