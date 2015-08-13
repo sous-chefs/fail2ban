@@ -1,3 +1,7 @@
+fail2ban Cookbook CHANGELOG
+===========================
+This file is used to list changes made in each version of the fail2ban cookbook.
+
 v2.2.1 (2014-10-15)
 -------------------
 - [#24] Add default value for pidfile

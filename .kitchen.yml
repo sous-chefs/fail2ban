@@ -1,4 +1,10 @@
-driver_plugin: vagrant
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
 driver_plugin: digitalocean
 driver_config:
   digitalocean_client_id: <%= ENV['DIGITAL_OCEAN_CLIENT_ID'] %>
