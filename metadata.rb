@@ -13,3 +13,6 @@ depends 'yum-epel'
 %w(debian ubuntu redhat centos scientific amazon oracle fedora).each do |os|
   supports os
 end
+
+source_url 'https://github.com/opscode-cookbooks/fail2ban' if respond_to?(:source_url)
+issues_url 'https://github.com/opscode-cookbooks/fail2ban/issues'  if respond_to?(:issues_url)
