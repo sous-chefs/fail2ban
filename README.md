@@ -23,7 +23,6 @@ Platforms
 Cookbooks
 ---------
 
-* yum
 * yum-epel'
 
 Recipes
