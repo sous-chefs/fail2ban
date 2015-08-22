@@ -11,7 +11,7 @@ enable the EPEL repository in order to retrieve the fail2ban package.
 Requirements
 ============
 
-Chef version 0.10.10+ and Ohai 0.6.12+ are required.
+* Chef 11 or greater
 
 Platforms
 ---------
