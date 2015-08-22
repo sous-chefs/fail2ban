@@ -5,7 +5,7 @@ license 'Apache 2.0'
 description 'Installs and configures fail2ban'
 version '2.2.1'
 
-recipe 'fail2ban', 'Installs and configures fail2ban'
+recipe 'default', 'Installs and configures fail2ban'
 
 depends 'yum-epel'
 
