@@ -54,6 +54,9 @@ features/*
 examples/*
 Guardfile
 Procfile
+.kitchen*
+.rubocop.yml
+.travis.yml
 
 # SCM #
 #######
@@ -77,8 +80,9 @@ tmp
 
 # Cookbooks #
 #############
-CONTRIBUTING
+CONTRIBUTING*
 CHANGELOG*
+TESTING*
 
 # Strainer #
 ############
@@ -91,10 +95,3 @@ Strainerfile
 ###########
 .vagrant
 Vagrantfile
-
-# Travis #
-##########
-.travis.yml
-test/
-spec/
-examples/
