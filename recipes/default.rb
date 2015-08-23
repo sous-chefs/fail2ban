@@ -27,7 +27,7 @@ end
 node['fail2ban']['filters'].each do |name, options|
   template "/etc/fail2ban/filter.d/#{name}.conf" do
     source 'filter.conf.erb'
-    variables(:failregex => [options['failregex']].flatten, :ignoreregex => [options['ignoreregex']].flatten)
+    variables(failregex: [options['failregex']].flatten, ignoreregex: [options['ignoreregex']].flatten)
     notifies :restart, 'service[fail2ban]'
   end
 end
@@ -49,7 +49,7 @@ template '/etc/fail2ban/jail.local' do
 end
 
 service 'fail2ban' do
-  supports [:status => true, :restart => true]
+  supports [status: true, restart: true]
   action [:enable, :start]
 
   if (platform?('ubuntu') && node['platform_version'].to_f < 12.04) ||
