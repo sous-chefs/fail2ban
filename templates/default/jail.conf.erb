@@ -96,7 +96,11 @@ enabled = <%= param['enabled'] %>
 <% end %>
 <% end %>
 <% if param['action'] %>
+<% if param['action'] =~ /action_/ %>
 action = %(<%= param['action'] %>)s
+<% else %>
+action = <%= param['action'] %>
+<% end %>
 <% end %>
 
 <% end %>
