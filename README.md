@@ -1,7 +1,7 @@
 fail2ban Cookbook
 =================
 
-[![Build Status](https://travis-ci.org/opscode-cookbooks/fail2ban.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/fail2ban)
+[![Build Status](https://travis-ci.org/chef-cookbooks/fail2ban.svg?branch=master)](https://travis-ci.org/chef-cookbooks/fail2ban)
 [![Cookbook Version](https://img.shields.io/cookbook/v/fail2ban.svg)](https://supermarket.chef.io/cookbooks/fail2ban)
 
 Installs and configures `fail2ban`, a utility that watches logs for failed login attempts
