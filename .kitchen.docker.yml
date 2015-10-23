@@ -34,5 +34,6 @@ platforms:
       - /usr/bin/apt-get install apt-transport-https net-tools -y
 
 suites:
-- name: default
-  run_list: [fail2ban::default]
+  - name: default
+    run_list:
+     recipe[fail2ban::default]

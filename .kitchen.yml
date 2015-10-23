@@ -15,5 +15,6 @@ platforms:
       - recipe[apt::default]
 
 suites:
-- name: default
-  run_list: [fail2ban::default]
+  - name: default
+    run_list:
+     recipe[fail2ban::default]
