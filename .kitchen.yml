@@ -17,4 +17,3 @@ platforms:
 suites:
 - name: default
   run_list: [fail2ban::default]
-  attributes: {}
