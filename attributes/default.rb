@@ -34,6 +34,7 @@ default['fail2ban']['bantime'] = 300
 default['fail2ban']['maxretry'] = 5
 default['fail2ban']['backend'] = 'polling'
 default['fail2ban']['email'] = 'root@localhost'
+default['fail2ban']['sendername'] = 'Fail2Ban'
 default['fail2ban']['action'] = 'action_'
 default['fail2ban']['banaction'] = 'iptables-multiport'
 default['fail2ban']['mta'] = 'sendmail'
