@@ -44,3 +44,22 @@ socket = <%= node['fail2ban']['socket'] %>
 # Values: [ FILE ]  Default: /var/run/fail2ban/fail2ban.pid
 #
 pidfile = <%= node['fail2ban']['pidfile'] %>
+
+# Option: syslogsocket
+# Notes: Set the syslog socket file. Only used when logtarget is SYSLOG
+#        auto uses platform.system() to determine predefined paths
+# Values: [ auto | FILE ]  Default: auto
+syslogsocket = <%= node['fail2ban']['syslogsocket'] %>
+
+# Options: dbfile
+# Notes.: Set the file for the fail2ban persistent data to be stored.
+#         A value of ":memory:" means database is only stored in memory
+#         and data is lost when fail2ban is stopped.
+#         A value of "None" disables the database.
+# Values: [ None :memory: FILE ] Default: /var/lib/fail2ban/fail2ban.sqlite3
+dbfile = <%= node['fail2ban']['dbfile'] %>
+
+# Options: dbpurgeage
+# Notes.: Sets age at which bans should be purged from the database
+# Values: [ SECONDS ] Default: 86400 (24hours)
+dbpurgeage = <%= node['fail2ban']['dbpurgeage'] %>
