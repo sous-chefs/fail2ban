@@ -1,4 +1,8 @@
 require 'chefspec'
 require 'chefspec/berkshelf'
 
-at_exit { ChefSpec::Coverage.report! }
+ChefSpec::Coverage.start!
+
+RSpec.configure do |config|
+  config.order = 'random'
+end
