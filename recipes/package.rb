@@ -23,4 +23,3 @@ include_recipe 'yum-epel' if platform_family?('rhel')
 package 'fail2ban' do
   action :install
 end
-
