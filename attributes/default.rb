@@ -19,7 +19,7 @@
 # fail2ban source installation options
 default['fail2ban']['install_method'] = 'package'
 default['fail2ban']['source']['version'] = '0.9.3'
-default['fail2ban']['source']['url'] = "https://github.com/fail2ban/fail2ban/archive/0.9.3.tar.gz"
+default['fail2ban']['source']['url'] = 'https://github.com/fail2ban/fail2ban/archive/0.9.3.tar.gz'
 
 # fail2ban.conf configuration options
 default['fail2ban']['loglevel'] = 3
