@@ -25,6 +25,6 @@ remote_file File.join(Chef::Config[:file_cache_path], "fail2ban-#{node['fail2ban
 end
 
 execute 'copy-config' do
-  command 'pwd && cp /var/chef/cache/fail2ban-#{node['fail2ban']['source']['version']}/files/redhat-initd /etc/init.d/fail2ban && chmod 755 /etc/init.d/fail2ban && chkconfig --add fail2ban && chkconfig fail2ban on'
+  command "pwd && cp /var/chef/cache/fail2ban-#{node['fail2ban']['source']['version']}/files/redhat-initd /etc/init.d/fail2ban && chmod 755 /etc/init.d/fail2ban && chkconfig --add fail2ban && chkconfig fail2ban on"
 end
 
