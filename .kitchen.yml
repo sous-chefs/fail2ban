@@ -6,7 +6,7 @@ provisioner:
 
 platforms:
   - name: centos-6.7
-  - name: centos-7.1
+  - name: centos-7.2
   - name: ubuntu-12.04
     run_list:
       - recipe[apt::default]
