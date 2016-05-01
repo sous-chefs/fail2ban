@@ -20,6 +20,7 @@ platforms:
     pid_one_command: /sbin/init
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
+      - RUN /usr/bin/apt-get install apt-transport-https net-tools -y
 
 - name: debian-8
   driver:
@@ -27,6 +28,7 @@ platforms:
     pid_one_command: /bin/systemd
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
+      - RUN /usr/bin/apt-get install apt-transport-https net-tools -y
 
 - name: centos-5
   driver:
@@ -45,10 +47,10 @@ platforms:
 - name: centos-7
   driver:
     image: centos:7
+    pid_one_command: /usr/lib/systemd/systemd
     intermediate_instructions:
       - RUN yum clean all
       - RUN yum -y install net-tools lsof
-    pid_one_command: /usr/lib/systemd/systemd
 
 - name: fedora-23
   driver:
