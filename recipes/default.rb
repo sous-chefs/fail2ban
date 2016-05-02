@@ -17,12 +17,7 @@
 # limitations under the License.
 #
 
-# epel repository is needed for the fail2ban package on rhel
-include_recipe 'yum-epel' if platform_family?('rhel')
-
-package 'fail2ban' do
-  action :install
-end
+include_recipe "fail2ban::#{node['fail2ban']['install_method']}"
 
 node['fail2ban']['filters'].each do |name, options|
   template "/etc/fail2ban/filter.d/#{name}.conf" do
