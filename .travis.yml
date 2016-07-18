@@ -9,6 +9,10 @@ addons:
     packages:
       - chefdk
 
+branches:
+  only:
+  - master
+
 services: docker
 
 env:
@@ -17,7 +21,7 @@ env:
   - INSTANCE=default-ubuntu-1604
   - INSTANCE=default-ubuntu-1404
   - INSTANCE=default-ubuntu-1204
-  - INSTANCE=default-centos-5
+  - INSTANCE=default-opensuse-421
   - INSTANCE=default-centos-6
   - INSTANCE=default-centos-7
 
@@ -33,8 +37,8 @@ before_script:
 
 script:
   - /opt/chefdk/embedded/bin/chef --version
-  - /opt/chefdk/embedded/bin/rubocop --version
-  - /opt/chefdk/embedded/bin/rubocop
+  - /opt/chefdk/embedded/bin/cookstyle --version
+  - /opt/chefdk/embedded/bin/cookstyle
   - /opt/chefdk/embedded/bin/foodcritic --version
   - /opt/chefdk/embedded/bin/foodcritic . --exclude spec -f any
   - /opt/chefdk/embedded/bin/rspec
