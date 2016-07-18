@@ -83,6 +83,20 @@ platforms:
       - RUN /usr/bin/apt-get update
       - RUN /usr/bin/apt-get install apt-transport-https net-tools -y
 
+- name: opensuse-13.2
+  driver:
+    image: opensuse:13.2
+    pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN zypper --non-interactive install aaa_base perl-Getopt-Long-Descriptive
+
+- name: opensuse-42.1
+  driver:
+    image: opensuse:42.1
+    pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN zypper --non-interactive install aaa_base perl-Getopt-Long-Descriptive
+
 suites:
   - name: default
     run_list:
