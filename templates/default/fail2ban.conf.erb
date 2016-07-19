@@ -30,6 +30,12 @@ syslog-target = <%= node['fail2ban']['syslog_target'] %>
 syslog-facility = <%= node['fail2ban']['syslog_facility'] %>
 <% end -%>
 
+# Option: syslogsocket
+# Notes: Set the syslog socket file. Only used when logtarget is SYSLOG
+#        auto uses platform.system() to determine predefined paths
+# Values: [ auto | FILE ]  Default: auto
+syslogsocket = auto
+
 # Option: socket
 # Notes.: Set the socket file. This is used to communicate with the daemon. Do
 #         not remove this file when Fail2ban runs. It will not be possible to
@@ -45,4 +51,9 @@ socket = <%= node['fail2ban']['socket'] %>
 #
 pidfile = <%= node['fail2ban']['pidfile'] %>
 dbfile = <%= node['fail2ban']['dbfile'] %>
+
+# Options: dbpurgeage
+# Notes.: Sets age at which bans should be purged from the database
+# Values: [ SECONDS ] Default: 86400 (24hours)
+
 dbpurgeage = <%= node['fail2ban']['dbpurgeage'] %>

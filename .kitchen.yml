@@ -27,4 +27,4 @@ platforms:
 suites:
   - name: default
     run_list:
-     recipe[fail2ban::default]
+     recipe[test::default]
