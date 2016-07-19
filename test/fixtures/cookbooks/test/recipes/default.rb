@@ -1,2 +1,3 @@
-include_recipe 'openssh::default'
-include_recipe 'fail2ban::default'
+include_recipe 'openssh'
+include_recipe 'rsyslog'
+include_recipe 'fail2ban'
