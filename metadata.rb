@@ -10,7 +10,7 @@ recipe 'default', 'Installs and configures fail2ban'
 
 depends 'yum-epel'
 
-%w(amazon centos debian fedora oracle redhat scientific ubuntu ).each do |os|
+%w(amazon centos debian fedora oracle redhat scientific ubuntu suse ).each do |os|
   supports os
 end
 

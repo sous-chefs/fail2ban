@@ -2,7 +2,7 @@ fail2ban Cookbook
 =================
 
 [![Build Status](https://travis-ci.org/chef-cookbooks/fail2ban.svg?branch=master)](https://travis-ci.org/chef-cookbooks/fail2ban)
-[![Cookbook Version](https://img.shields.io/cookbook/v/fail2ban.svg)](https://supermarket.chef.io/cookbooks/fail2ban)
+<!-- [![Cookbook Version](https://img.shields.io/cookbook/v/fail2ban.svg)](https://supermarket.chef.io/cookbooks/fail2ban) -->
 
 Installs and configures `fail2ban`, a utility that watches logs for failed login attempts
 and blocks repeat offenders with firewall rules.  On Redhat systems this cookbook will
@@ -19,6 +19,7 @@ Platforms
 * Debian/Ubuntu
 * RHEL/CentOS/Scientific/Amazon/Oracle
 * Fedora
+* OpenSUSE
 
 Cookbooks
 ---------
@@ -41,6 +42,30 @@ Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
 
 Attributes
 =====
+
+This cookbook has a set of configuration options for fail2ban
+
+* default['fail2ban']['loglevel'] = 3
+* default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
+* default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'
+* default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'
+* default['fail2ban']['dbfile'] = '/var/lib/fail2ban/fail2ban.sqlite3'
+* default['fail2ban']['dbpurgeage'] = 86_400
+
+This cookbook has a set of configuration options for jail.conf
+
+* default['fail2ban']['ignoreip'] = '127.0.0.1/8'
+* default['fail2ban']['findtime'] = 600
+* default['fail2ban']['bantime'] = 300
+* default['fail2ban']['maxretry'] = 5
+* default['fail2ban']['backend'] = 'polling'
+* default['fail2ban']['email'] = 'root@localhost'
+* default['fail2ban']['sendername'] = 'Fail2Ban'
+* default['fail2ban']['action'] = 'action_'
+* default['fail2ban']['banaction'] = 'iptables-multiport'
+* default['fail2ban']['mta'] = 'sendmail'
+* default['fail2ban']['protocol'] = 'tcp'
+* default['fail2ban']['chain'] = 'INPUT'
 
 This cookbook makes use of a hash to compile the jail.local-file and filter config files:
 

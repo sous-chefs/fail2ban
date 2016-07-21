@@ -2,6 +2,17 @@ fail2ban Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+v2.3.1 (2016-07-20)
+-------------------
+- Added fixture cookbook
+- Cleanup of kitchen configurations
+- [#38] Default config values to avoid warning from pbanderas
+- [#37] Add support for 'sendername' setting on config from Restless-ET
+- [#35] Add support for configuring service backend from ares
+- many updates to testing
+- [#25] Allow jail actions of either format from rchekaluk
+- Add OpenSUSE platform
+
 v2.3.0 (2015-08-22)
 -------------------
 - Updated Berksfile to 3.0 format
