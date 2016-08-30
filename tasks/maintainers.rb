@@ -1,9 +1,5 @@
 #
-<<<<<<< b537dbf94e21498d1220ea6e70ea17054fcd9409
-# Copyright:: Copyright (c) 2016 Chef Software, Inc.
-=======
 # Copyright:: Copyright (c) 2015-2016 Chef Software, Inc.
->>>>>>> Testing updates
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
