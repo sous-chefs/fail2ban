@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'fail2ban::default converge' do
   let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new
+    runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
     runner.node.normal['fail2ban']['filters'] = {
       'nginx-proxy' => {
         'failregex' => ['^<HOST> -.*GET http.*'],
