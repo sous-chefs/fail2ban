@@ -2,6 +2,9 @@ fail2ban Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+## 3.1.0 (2016-11-14)
+- Add support for jail ignorecommand
+
 ## 3.0.0 (2016-09-16)
 - Testing updates
 - Require Chef 12.1+
