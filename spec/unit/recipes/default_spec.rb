@@ -6,8 +6,8 @@ describe 'fail2ban::default converge' do
     runner.node.normal['fail2ban']['filters'] = {
       'nginx-proxy' => {
         'failregex' => ['^<HOST> -.*GET http.*'],
-        'ignoreregex' => []
-      }
+        'ignoreregex' => [],
+      },
     }
     runner.converge('fail2ban::default')
   end

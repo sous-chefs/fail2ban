@@ -60,13 +60,13 @@ default['fail2ban']['services'] = {
     'port' => 'ssh',
     'filter' => 'sshd',
     'logpath' => node['fail2ban']['auth_log'],
-    'maxretry' => '6'
-  }
+    'maxretry' => '6',
+  },
 }
 
 case node['platform_family']
 when 'rhel', 'fedora'
   default['fail2ban']['services']['ssh-iptables'] = {
-    'enabled' => false
+    'enabled' => false,
   }
 end
