@@ -8,5 +8,4 @@ end
 
 group :integration do
   cookbook 'apt'
-  cookbook 'yum'
 end
