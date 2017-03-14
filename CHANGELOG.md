@@ -2,6 +2,18 @@ fail2ban Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+## 4.0.0 (2017-03-14)
+**NOTE**
+The next version of this cookbook will be a rewrite to use custom resources and eliminate attributes. This should be backwards compatible to previous versions of the cookbook, but there are some changes that might break current assumptions so doing a major bump.
+- [#33] Fix ubuntu platforms 
+- Add ubuntu platform guards to default recipe
+- Update README to be more clear with regards to rsyslog
+- Remove defaults-debian.conf on ubuntu platforms, that assumes ssh enabled on nodes.
+- Modify metadata dependency to Chef 12.5+
+- Modify chef spec to remove service start, enable on resources as on debian platforms the service is started by install of package
+- Make test kitchen show deprecation errors
+- Remove EOL debian and ubuntu logic from default recipe
+
 ## 3.1.0 (2016-11-14)
 - Add support for jail ignorecommand
 

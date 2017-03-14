@@ -34,7 +34,6 @@ Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
 
 This cookbook has a set of configuration options for fail2ban
 
-- default['fail2ban']['loglevel'] = 3
 - default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
 - default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'
 - default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'
