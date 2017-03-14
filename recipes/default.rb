@@ -20,21 +20,6 @@
 # epel repository is needed for the fail2ban package on rhel
 include_recipe 'yum-epel' if platform_family?('rhel')
 
-service 'fail2ban' do
-  supports [status: true, restart: true]
-  action :nothing
-
-  if platform?('ubuntu') && node['platform_version'].to_f >= 15.10
-    provider Chef::Provider::Service::Init::Systemd
-  end
-
-  if (platform?('ubuntu') && node['platform_version'].to_f < 12.04) ||
-     (platform?('debian') && node['platform_version'].to_f < 7)
-    # status command returns non-0 value only since fail2ban 0.8.6-3 (Debian)
-    status_command "/etc/init.d/fail2ban status | grep -q 'is running'"
-  end
-end
-
 package 'fail2ban' do
   action :install
 end
@@ -61,4 +46,15 @@ template '/etc/fail2ban/jail.local' do
   group 'root'
   mode '0644'
   notifies :restart, 'service[fail2ban]'
+end
+
+file '/etc/fail2ban/jail.d/defaults-debian.conf' do
+  action 'delete'
+  only_if { platform?('ubuntu') }
+end
+
+service 'fail2ban' do
+  supports [status: true, restart: true]
+  action [:enable, :start] if platform_family?('rhel')
+  action [:enable] if platform_family?('debian')
 end

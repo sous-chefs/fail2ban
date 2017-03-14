@@ -16,11 +16,6 @@ describe 'fail2ban::default converge' do
     expect(chef_run).to install_package('fail2ban')
   end
 
-  it 'should start and enable service fail2ban' do
-    expect(chef_run).to start_service('fail2ban')
-    expect(chef_run).to enable_service('fail2ban')
-  end
-
   it 'should template fail2ban.conf' do
     expect(chef_run).to render_file('/etc/fail2ban/fail2ban.conf')
   end
