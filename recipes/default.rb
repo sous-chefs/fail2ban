@@ -48,13 +48,13 @@ template '/etc/fail2ban/jail.local' do
   notifies :restart, 'service[fail2ban]'
 end
 
+file '/etc/fail2ban/jail.d/defaults-debian.conf' do
+  action 'delete'
+  only_if { platform?('ubuntu') }
+end
+
 service 'fail2ban' do
   supports [status: true, restart: true]
-  action [:enable, :start]
-
-  if (platform?('ubuntu') && node['platform_version'].to_f < 12.04) ||
-     (platform?('debian') && node['platform_version'].to_f < 7)
-    # status command returns non-0 value only since fail2ban 0.8.6-3 (Debian)
-    status_command "/etc/init.d/fail2ban status | grep -q 'is running'"
-  end
+  action [:enable, :start] if platform_family?('rhel')
+  action [:enable] if platform_family?('debian')
 end
