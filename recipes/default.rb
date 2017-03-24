@@ -24,6 +24,12 @@ package 'fail2ban' do
   action :install
 end
 
+if node['fail2ban']['mta'] == 'sendmail'
+  package 'sendmail' do
+    action :install
+  end
+end
+
 node['fail2ban']['filters'].each do |name, options|
   template "/etc/fail2ban/filter.d/#{name}.conf" do
     source 'filter.conf.erb'
