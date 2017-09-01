@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'default recipe on Ubuntu 12.04' do
   let(:chef_run) do
-    ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '12.04').converge('fail2ban::default')
+    ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04').converge('fail2ban::default')
   end
 
   it 'converges successfully' do

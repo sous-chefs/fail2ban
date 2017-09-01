@@ -12,7 +12,7 @@ end
 
 describe 'default recipe on CentOS 6' do
   let(:chef_run) do
-    ChefSpec::ServerRunner.new(platform: 'centos', version: '6.6').converge('fail2ban::default')
+    ChefSpec::ServerRunner.new(platform: 'centos', version: '6.8').converge('fail2ban::default')
   end
 
   it 'converges successfully' do
