@@ -55,7 +55,6 @@ end
 
 case node['fail2ban']['banaction']
 when 'iptables-multiport'
-  include_recipe 'iptables'
   node['fail2ban']['services'].each do |name, options|
     iptables_rule "conntrack-#{name}" do
       lines "-A INPUT -m conntrack -m tcp -p tcp --dport #{name} --ctstate ESTABLISHED,RELATED -j ACCEPT"
