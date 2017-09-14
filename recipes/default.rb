@@ -53,6 +53,16 @@ file '/etc/fail2ban/jail.d/defaults-debian.conf' do
   only_if { platform?('ubuntu') }
 end
 
+case node['fail2ban']['banaction']
+when 'iptables-multiport'
+  include_recipe 'iptables'
+  node['fail2ban']['services'].each do |name, options|
+    iptables_rule "conntrack-#{name}" do
+      lines "-A INPUT -m conntrack -m tcp -p tcp --dport #{name} --ctstate ESTABLISHED,RELATED -j ACCEPT"
+    end
+  end
+end
+
 service 'fail2ban' do
   supports [status: true, restart: true]
   action [:enable, :start] if platform_family?('rhel')

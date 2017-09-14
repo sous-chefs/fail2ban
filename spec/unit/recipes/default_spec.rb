@@ -33,3 +33,11 @@ describe 'fail2ban::default converge' do
     expect(chef_run).to render_file('/etc/fail2ban/filter.d/nginx-proxy.conf')
   end
 end
+
+# Note: To see this list just run 'sudo iptables --list-rules' on the vagrant instance
+describe iptables do
+  it { should have_rule('-P INPUT ACCEPT') }
+  it { should have_rule('-P FORWARD ACCEPT') }
+  it { should have_rule('-P OUTPUT ACCEPT') }
+  it { should have_rule('-A INPUT -p tcp -m conntrack --ctstate RELATED,ESTABLISHED -m tcp --dport 22 -j ACCEPT')}
+end

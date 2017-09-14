@@ -9,6 +9,7 @@ version '4.0.1'
 recipe 'default', 'Installs and configures fail2ban'
 
 depends 'yum-epel'
+depends 'iptables'
 
 %w(amazon centos debian fedora oracle redhat scientific ubuntu suse opensuse opensuseleap ).each do |os|
   supports os
