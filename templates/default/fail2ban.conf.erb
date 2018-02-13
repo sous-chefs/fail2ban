@@ -25,10 +25,6 @@ loglevel = INFO
 # Values:  STDOUT STDERR SYSLOG file  Default:  /var/log/fail2ban.log
 #
 logtarget = <%= node['fail2ban']['logtarget'] %>
-<% if node['fail2ban']['logtarget'] == "SYSLOG" -%>
-syslog-target = <%= node['fail2ban']['syslog_target'] %>
-syslog-facility = <%= node['fail2ban']['syslog_facility'] %>
-<% end -%>
 
 # Option: syslogsocket
 # Notes: Set the syslog socket file. Only used when logtarget is SYSLOG
