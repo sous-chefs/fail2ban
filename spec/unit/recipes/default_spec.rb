@@ -9,6 +9,8 @@ describe 'fail2ban::default converge' do
         'ignoreregex' => [],
       },
     }
+    runner.node.normal['packages']['fail2ban'] = { version: '0.9.3-1', arch: 'all' }
+
     runner.converge('fail2ban::default')
   end
 
@@ -17,7 +19,10 @@ describe 'fail2ban::default converge' do
   end
 
   it 'should template fail2ban.conf' do
-    expect(chef_run).to render_file('/etc/fail2ban/fail2ban.conf')
+    expect(chef_run).to render_file('/etc/fail2ban/fail2ban.conf').with_content { |content|
+      expect(content).to match(/^loglevel = INFO/)
+      expect(content).to match(/^dbpurgeage = 86400/)
+    }
   end
 
   it 'should template jail.local' do
