@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+## 5.0.0 (2018-02-14)
+
+- Add new logic to detect the fail2ban version and apply appropriate config for 0.8 vs > 0.8. This makes sure we're using the current on newer systems while still supporting Ubuntu 14.04
+- Remove defunct syslog config statements from very old fail2ban releases
+
 ## 4.0.1 (2017-04-26)
 
 - Update apache2 license string
