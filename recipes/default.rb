@@ -22,6 +22,12 @@ include_recipe 'yum-epel' if platform_family?('rhel')
 
 package 'fail2ban' do
   action :install
+  notifies :reload, 'ohai[reload package list]', :immediately
+end
+
+ohai 'reload package list' do
+  plugin 'packages'
+  action :nothing
 end
 
 node['fail2ban']['filters'].each do |name, options|
@@ -37,6 +43,7 @@ template '/etc/fail2ban/fail2ban.conf' do
   owner 'root'
   group 'root'
   mode '0644'
+  variables(lazy { { f2b_version: node['packages']['fail2ban']['version'].match(/^[0-9]+\.[0-9]+/)[0].to_f } })
   notifies :restart, 'service[fail2ban]'
 end
 

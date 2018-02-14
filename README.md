@@ -34,11 +34,18 @@ Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
 
 This cookbook has a set of configuration options for fail2ban
 
-- default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
+- default['fail2ban']['loglevel'] = 'INFO'
 - default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'
+- default['fail2ban']['syslogsocket'] = 'auto'
+- default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
 - default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'
 - default['fail2ban']['dbfile'] = '/var/lib/fail2ban/fail2ban.sqlite3'
 - default['fail2ban']['dbpurgeage'] = 86_400
+
+The `CRITICAL` and `NOTICE` log levels are only available on fail2ban >= 0.9.x. If they are used on a system with an older version of fail2ban, they will be mapped to `ERROR` and `INFO` respectively.
+
+The `syslogsocket`, `dbfile`, and `dbpurgeage` options are only applicable to fail2ban >= 0.9.x
+
 
 This cookbook has a set of configuration options for jail.conf
 

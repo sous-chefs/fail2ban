@@ -17,9 +17,10 @@
 # limitations under the License.
 
 # fail2ban.conf configuration options
-default['fail2ban']['loglevel'] = 3
-default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
+default['fail2ban']['loglevel'] = 'INFO'
 default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'
+default['fail2ban']['syslogsocket'] = 'auto'
+default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
 default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'
 default['fail2ban']['dbfile'] = '/var/lib/fail2ban/fail2ban.sqlite3'
 default['fail2ban']['dbpurgeage'] = 86_400
