@@ -24,11 +24,6 @@ default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'
 default['fail2ban']['dbfile'] = '/var/lib/fail2ban/fail2ban.sqlite3'
 default['fail2ban']['dbpurgeage'] = 86_400
 
-# These values will only be printed to fail2ban.conf
-# if node['fail2ban']['logtarget'] is set to 'SYSLOG'
-default['fail2ban']['syslog_target'] = '/var/log/fail2ban.log'
-default['fail2ban']['syslog_facility'] = '1'
-
 # jail.conf configuration options
 default['fail2ban']['ignoreip'] = '127.0.0.1/8'
 default['fail2ban']['findtime'] = 600
