@@ -16,4 +16,4 @@ end
 
 source_url 'https://github.com/chef-cookbooks/fail2ban'
 issues_url 'https://github.com/chef-cookbooks/fail2ban/issues'
-chef_version '>= 12.5'
+chef_version '>= 12.9'
