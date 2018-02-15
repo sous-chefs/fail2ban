@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+## 5.0.1 (2018-02-15)
+
+- Update the minimum supported Chef release to 12.9 since we're using the Ohai package plugin now. We highly recommend you run at least the very latest Chef 12 reelase which includes additional packabe plugin fixes.
+
 ## 5.0.0 (2018-02-14)
 
 - Add new logic to detect the fail2ban version and apply appropriate config for 0.8 vs > 0.8. This makes sure we're using the current on newer systems while still supporting Ubuntu 14.04
