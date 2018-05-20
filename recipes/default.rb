@@ -43,7 +43,7 @@ template '/etc/fail2ban/fail2ban.conf' do
   owner 'root'
   group 'root'
   mode '0644'
-  variables(lazy { { f2b_version: node['packages']['fail2ban']['version'].match(/^[0-9]+\.[0-9]+/)[0].to_f } })
+  variables(lazy { { f2b_version: node['packages']['fail2ban']['version'] } })
   notifies :restart, 'service[fail2ban]'
 end
 
