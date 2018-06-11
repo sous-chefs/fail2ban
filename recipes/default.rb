@@ -60,6 +60,11 @@ file '/etc/fail2ban/jail.d/defaults-debian.conf' do
   only_if { platform?('ubuntu') }
 end
 
+file '/etc/fail2ban/jail.d/00-firewalld.conf' do
+  action 'delete'
+  only_if { platform?('centos') }
+end
+
 service 'fail2ban' do
   supports [status: true, restart: true]
   action [:enable, :start] if platform_family?('rhel')
