@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+## 5.0.2 (2018-07-18)
+
+- Update specs to the latest platform versions
+- Testing updates
+- Delete jail.d/00-firewalld.conf on CentOS like we delete jail.d/defaults-debian.conf on Ubuntu)
+- Move templates out of the default directory
+
 ## 5.0.1 (2018-02-15)
 
 - Update the minimum supported Chef release to 12.9 since we're using the Ohai package plugin now. We highly recommend you run at least the very latest Chef 12 reelase which includes additional packabe plugin fixes.
