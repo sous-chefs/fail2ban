@@ -8,7 +8,7 @@
 
 # Option: loglevel
 # Notes.: Set the log level output.
-<% if @f2b_version.to_f < 0.9 -%>
+<% if Gem::Version.new(@f2b_version) < Gem::Version.new('0.9') -%>
 #         1 = ERROR
 #         2 = WARN
 #         3 = INFO
@@ -36,7 +36,7 @@ loglevel = <%= node['fail2ban']['loglevel'] %>
 # Values: [ STDOUT | STDERR | SYSLOG | FILE ]  Default: STDERR
 logtarget = <%= node['fail2ban']['logtarget'] %>
 
-<% if @f2b_version.to_f >= 0.9 -%>
+<% if Gem::Version.new(@f2b_version) >= Gem::Version.new('0.9') -%>
 # Option: syslogsocket
 # Notes: Set the syslog socket file. Only used when logtarget is SYSLOG
 #        auto uses platform.system() to determine predefined paths
@@ -57,7 +57,7 @@ socket = <%= node['fail2ban']['socket'] %>
 # Values: [ FILE ]  Default: /var/run/fail2ban/fail2ban.pid
 pidfile = <%= node['fail2ban']['pidfile'] %>
 
-<% if @f2b_version.to_f >= 0.9 -%>
+<% if Gem::Version.new(@f2b_version) >= Gem::Version.new('0.9') -%>
 # Options: dbfile
 # Notes.: Set the file for the fail2ban persistent data to be stored.
 #         A value of ":memory:" means database is only stored in memory
