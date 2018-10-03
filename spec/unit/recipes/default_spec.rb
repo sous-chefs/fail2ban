@@ -1,4 +1,6 @@
 require 'spec_helper'
+require File.expand_path(File.dirname(__FILE__) + '/centos_spec.rb')
+require File.expand_path(File.dirname(__FILE__) + '/ubuntu_spec.rb')
 
 describe 'fail2ban::default converge' do
   let(:chef_run) do
