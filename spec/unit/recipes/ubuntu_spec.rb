@@ -47,9 +47,8 @@ describe 'default recipe on Ubuntu 18.04' do
     expect(chef_run).to render_file('/etc/fail2ban/fail2ban.conf').with_content { |content|
       expect(content).to match(/^loglevel = INFO/)
       expect(content).to match(/^syslogsocket = auto/)
-      expect(content).to match(/^dbfile = \/var\/lib\/fail2ban\/fail2ban.sqlite3/)
+      expect(content).to match(%r{^dbfile = /var/lib/fail2ban/fail2ban.sqlite3})
       expect(content).to match(/^dbpurgeage = 86400/)
     }
   end
 end
-
