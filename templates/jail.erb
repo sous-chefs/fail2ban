@@ -1,0 +1,16 @@
+# DO NOT EDIT - This file is being maintained by Chef
+
+[<%= @name %>]
+enabled = true
+<% if @protocol -%>
+protocol = <%= @protocol %>
+<% end -%>
+port = <%= @ports.join(",") %>
+filter = <%= @filter %>
+logpath = <%= @logpath %>
+<% if @maxretry -%>
+maxretry = <%= @maxretry %>
+<% end -%>
+<% if @ignoreips -%>
+ignoreip = <%= @ignoreips.sort.join(" ") %>
+<% end -%>
