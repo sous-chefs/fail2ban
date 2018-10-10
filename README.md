@@ -26,10 +26,6 @@ Installs and configures `fail2ban`, a utility that watches logs for failed login
 
 Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf` and `/etc/fail2ban/jail.conf`, and manages the fail2ban service.
 
-## Usage
-
-Typically, include `recipe[fail2ban]` in a base role applied to all nodes.
-
 ## Attributes
 
 This cookbook has a set of configuration options for fail2ban
