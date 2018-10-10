@@ -18,7 +18,7 @@
 #
 
 # epel repository is needed for the fail2ban package on rhel
-include_recipe 'yum-epel' if platform_family?('rhel')
+include_recipe 'yum-epel' if platform_family?('rhel', 'amazon')
 
 package 'fail2ban' do
   action :install

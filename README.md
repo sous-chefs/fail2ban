@@ -14,7 +14,7 @@ Installs and configures `fail2ban`, a utility that watches logs for failed login
 - OpenSUSE
 
 ### Chef
-- Chef 12.9+
+- Chef 13.0+
 
 ### Cookbooks
 
