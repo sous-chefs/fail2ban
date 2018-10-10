@@ -40,18 +40,12 @@ end
 
 template '/etc/fail2ban/fail2ban.conf' do
   source 'fail2ban.conf.erb'
-  owner 'root'
-  group 'root'
-  mode '0644'
   variables(lazy { { f2b_version: node['packages']['fail2ban']['version'] } })
   notifies :restart, 'service[fail2ban]'
 end
 
 template '/etc/fail2ban/jail.local' do
   source 'jail.conf.erb'
-  owner 'root'
-  group 'root'
-  mode '0644'
   notifies :restart, 'service[fail2ban]'
 end
 
