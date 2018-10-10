@@ -2,7 +2,7 @@
 # Cookbook:: fail2ban
 # Attributes:: default
 #
-# Copyright:: 2013-2016, Chef Software, Inc.
+# Copyright:: 2013-2018, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -39,7 +39,9 @@ default['fail2ban']['mta'] = 'sendmail'
 default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
 
-# custom filters.
+# Using attributes to specify the fail2ban filters is now deprecated in favor
+# of the fail2ban_filter resource which provides a more Chef native way of defining
+# individual filters in recipes using resources
 # format: { name: { failregex: '', ignoreregex: ''} }
 default['fail2ban']['filters'] = {}
 
@@ -50,6 +52,9 @@ when 'debian'
   default['fail2ban']['auth_log'] = '/var/log/auth.log'
 end
 
+# Using attributes to specify the fail2ban jails is now deprecated in favor
+# of the fail2ban_filter resource which provides a more Chef native way of defining
+# individual filters in recipes using resources
 default['fail2ban']['services'] = {
   'ssh' => {
     'enabled' => 'true',
