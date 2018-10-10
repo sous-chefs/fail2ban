@@ -105,6 +105,16 @@ default['fail2ban']['filters'] = {
 }
 ```
 
+## Testing
+
+To execute the unit tests:
+
+```
+bundle install
+bundle exec berks install
+bundle exec rspec spec/unit/recipes/default_spec.rb
+```
+
 Issues related to rsyslog
 ==========================
 
