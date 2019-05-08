@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the fail2ban cookbook.
 
+## 6.0.0 (2019-05-08)
+
+- Require Chef 13 or later
+- Add support for Amazon Linux on Chef 13+
+- Add support for Ubuntu 18.04
+- Add new fail2ban_jail and fain2ban_filter resources that allow you to define individual filters and jails within your own recipes instead of using the monolithic attribute config. With the introduction of these resources the existing attribute driven workflow has been deprecated and will eventually be removed. Thank you OpenStreetMap for these great new resources.
+
 ## 5.0.2 (2018-07-18)
 
 - Update specs to the latest platform versions
