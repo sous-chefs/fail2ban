@@ -25,6 +25,13 @@ package 'fail2ban' do
   notifies :reload, 'ohai[reload package list]', :immediately
 end
 
+if node['fail2ban']['slack_webhook']
+  package 'curl' do
+    action :install
+    notifies :reload, 'ohai[reload package list]', :immediately
+  end
+end
+
 ohai 'reload package list' do
   plugin 'packages'
   action :nothing
@@ -33,7 +40,10 @@ end
 node['fail2ban']['filters'].each do |name, options|
   template "/etc/fail2ban/filter.d/#{name}.conf" do
     source 'filter.conf.erb'
-    variables(failregex: [options['failregex']].flatten, ignoreregex: [options['ignoreregex']].flatten)
+    variables(
+      failregex: [options['failregex']].flatten,
+      ignoreregex: [options['ignoreregex']].flatten
+    )
     notifies :restart, 'service[fail2ban]'
   end
 end
@@ -46,7 +56,29 @@ end
 
 template '/etc/fail2ban/jail.local' do
   source 'jail.conf.erb'
+  variables(
+    slack_webhook: node['fail2ban']['slack_webhook']
+  )
   notifies :restart, 'service[fail2ban]'
+end
+
+if node['fail2ban']['slack_webhook']
+  template '/etc/fail2ban/action.d/slack.conf' do
+    source 'slack.conf.erb'
+    notifies :restart, 'service[fail2ban]'
+  end
+
+  template '/etc/fail2ban/slack_notify.sh' do
+    source 'slack_notify.sh.erb'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    variables(
+      slack_channel: node['fail2ban']['slack_channel'],
+      slack_webhook: node['fail2ban']['slack_webhook']
+    )
+    notifies :restart, 'service[fail2ban]'
+  end
 end
 
 file '/etc/fail2ban/jail.d/defaults-debian.conf' do

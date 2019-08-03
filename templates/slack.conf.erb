@@ -1,0 +1,4 @@
+[Definition]
+
+actionban = /bin/bash /etc/fail2ban/slack_notify.sh "Banned _country_ <ip> in the jail <name> after <failures> attempts" "<ip>" > /dev/null 2>&1
+actionunban = /bin/bash /etc/fail2ban/slack_notify.sh "Unbanned _country_ <ip> in the jail <name>" "<ip>" > /dev/null 2>&1

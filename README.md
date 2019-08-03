@@ -101,6 +101,20 @@ default['fail2ban']['filters'] = {
 }
 ```
 
+In the case you would like to get Slack notifications on IP addresses banned/unbanned, this cookbook supports it by setting the following attributes:
+
+```ruby
+# A Slack webhook looks like this:
+# https://hooks.slack.com/services/A123BCD4E/FG5HI6KLM/7n8opqrsT9UVWxyZ0AbCdefG
+default['fail2ban']['slack_webhook'] = nil
+# Then setting the Slack channel name without the hashtag (#)
+default['fail2ban']['slack_channel'] = 'general'
+```
+
+Then you will get notifications like this:
+
+> [hostname] Banned 🇳🇬 217.117.13.12 in the jail sshd after 5 attempts
+
 Issues related to rsyslog
 ==========================
 
