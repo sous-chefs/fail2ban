@@ -93,6 +93,6 @@ end
 
 service 'fail2ban' do
   supports [status: true, restart: true]
-  action [:enable, :start] if platform_family?('rhel')
+  action [:enable, :start] if platform_family?('rhel', 'amazon', 'fedora')
   action [:enable] if platform_family?('debian')
 end
