@@ -38,6 +38,15 @@ default['fail2ban']['banaction'] = 'iptables-multiport'
 default['fail2ban']['mta'] = 'sendmail'
 default['fail2ban']['protocol'] = 'tcp'
 default['fail2ban']['chain'] = 'INPUT'
+# Create and copy/past your Slack webhook in the following attribute and you'll
+# get Slack message on banning/unbanning IP like this:
+# [hostname] Banned 🇳🇬 217.117.13.12 in the jail sshd after 5 attempts
+#
+# A Slack webhook looks like this:
+# https://hooks.slack.com/services/A123BCD4E/FG5HI6KLM/7n8opqrsT9UVWxyZ0AbCdefG
+default['fail2ban']['slack_webhook'] = nil
+# Then setting the Slack channel name without the hashtag (#)
+default['fail2ban']['slack_channel'] = 'general'
 
 # Using attributes to specify the fail2ban filters is now deprecated in favor
 # of the fail2ban_filter resource which provides a more Chef native way of defining
