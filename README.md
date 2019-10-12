@@ -14,6 +14,7 @@ Installs and configures `fail2ban`, a utility that watches logs for failed login
 - OpenSUSE
 
 ### Chef
+
 - Chef 13.0+
 
 ### Cookbooks
@@ -41,7 +42,6 @@ This cookbook has a set of configuration options for fail2ban
 The `CRITICAL` and `NOTICE` log levels are only available on fail2ban >= 0.9.x. If they are used on a system with an older version of fail2ban, they will be mapped to `ERROR` and `INFO` respectively.
 
 The `syslogsocket`, `dbfile`, and `dbpurgeage` options are only applicable to fail2ban >= 0.9.x
-
 
 This cookbook has a set of configuration options for jail.conf
 
@@ -115,8 +115,7 @@ Then you will get notifications like this:
 
 > [hostname] Banned 🇳🇬 217.117.13.12 in the jail sshd after 5 attempts
 
-Issues related to rsyslog
-==========================
+## Issues related to rsyslog
 
 If you are using rsyslog parameter "$RepeatedMsgReduction on" in rsyslog.conf file
 then you can get "Last message repeated N times" in system log file (for example auth.log).
