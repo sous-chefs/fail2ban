@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'default recipe on Ubuntu 12.04' do
   let(:chef_run) do
     runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
-    runner.node.normal['packages']['fail2ban'] = { version: '0.8.6-3wheezy3build0.12.04.1', arch: 'all' }
+    runner.node.default['packages']['fail2ban'] = { version: '0.8.6-3wheezy3build0.12.04.1', arch: 'all' }
     runner.converge('fail2ban::default')
   end
 
@@ -19,7 +19,7 @@ end
 describe 'default recipe on Ubuntu 14.04' do
   let(:chef_run) do
     runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04')
-    runner.node.normal['packages']['fail2ban'] = { version: '0.8.11-1', arch: 'all' }
+    runner.node.default['packages']['fail2ban'] = { version: '0.8.11-1', arch: 'all' }
     runner.converge('fail2ban::default')
   end
 
@@ -35,7 +35,7 @@ end
 describe 'default recipe on Ubuntu 18.04' do
   let(:chef_run) do
     runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '18.04')
-    runner.node.normal['packages']['fail2ban'] = { version: '0.10.2-2', arch: 'all' }
+    runner.node.default['packages']['fail2ban'] = { version: '0.10.2-2', arch: 'all' }
     runner.converge('fail2ban::default')
   end
 

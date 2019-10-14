@@ -3,13 +3,13 @@ require 'spec_helper'
 describe 'fail2ban::default converge' do
   let(:chef_run) do
     runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
-    runner.node.normal['fail2ban']['filters'] = {
+    runner.node.default['fail2ban']['filters'] = {
       'nginx-proxy' => {
         'failregex' => ['^<HOST> -.*GET http.*'],
         'ignoreregex' => [],
       },
     }
-    runner.node.normal['packages']['fail2ban'] = {
+    runner.node.default['packages']['fail2ban'] = {
       version: '0.9.3-1',
       arch: 'all',
     }
@@ -59,7 +59,7 @@ end
 describe 'fail2ban::default converge with a given slack webhook' do
   let(:chef_run) do
     runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
-    runner.node.normal['fail2ban'] = {
+    runner.node.default['fail2ban'] = {
       filters: {
         'nginx-proxy' => {
           'failregex' => ['^<HOST> -.*GET http.*'],
@@ -69,7 +69,7 @@ describe 'fail2ban::default converge with a given slack webhook' do
       slack_channel: 'infra',
       slack_webhook: 'https://hooks.slack.com/services/A123BCD4E/FG5HI6KLM/7n8opqrsT9UVWxyZ0AbCdefG',
     }
-    runner.node.normal['packages']['fail2ban'] = {
+    runner.node.default['packages']['fail2ban'] = {
       version: '0.9.3-1',
       arch: 'all',
     }
