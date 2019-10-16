@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 6.1.0 (2019-10-16)
+
+- Adds Slack notifications as a notifier
+- Fixup testing
+- 
+
 ## 6.0.0 (2019-05-08)
 
 - Require Chef 13 or later

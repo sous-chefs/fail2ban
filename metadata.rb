@@ -1,17 +1,15 @@
 name 'fail2ban'
-maintainer 'Chef Software, Inc.'
-maintainer_email 'cookbooks@chef.io'
+maintainer 'Sous-Chefs'
+maintainer_email 'help@sous-chefs.org'
 license 'Apache-2.0'
 description 'Installs and configures fail2ban'
-
-version '6.0.0'
+source_url 'https://github.com/chef-cookbooks/fail2ban'
+issues_url 'https://github.com/chef-cookbooks/fail2ban/issues'
+chef_version '>= 13.0'
+version '6.1.0'
 
 depends 'yum-epel'
 
 %w(amazon centos debian fedora oracle redhat scientific ubuntu suse opensuse opensuseleap ).each do |os|
   supports os
 end
-
-source_url 'https://github.com/chef-cookbooks/fail2ban'
-issues_url 'https://github.com/chef-cookbooks/fail2ban/issues'
-chef_version '>= 13.0'
