@@ -1,4 +1,12 @@
 ---
+jobs:
+  final:
+    docker:
+      - image: bash:latest
+    steps:
+      - run:
+          name: Finish cooking
+          command: echo "Finished cooking"
 lint_and_unit: &lint_and_unit
   - delivery
   - danger
@@ -63,3 +71,16 @@ workflows:
           name: default-opensuse-leap-15
           suite: default-opensuse-leap-15
           requires: *lint_and_unit
+      - final:
+          requires:
+            - default-amazonlinux
+            - default-amazonlinux-2
+            - default-debian-9
+            - default-debian-10
+            - default-centos-6
+            - default-centos-7
+            - default-fedora-latest
+            - default-ubuntu-1604
+            - default-ubuntu-1804
+            - default-opensuse-leap-42
+            - default-opensuse-leap-15
