@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Simplify platform check logic
+
 ## 6.1.0 (2019-10-16)
 
 - Adds Slack notifications as a notifier
