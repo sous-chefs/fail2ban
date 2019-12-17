@@ -74,8 +74,7 @@ default['fail2ban']['services'] = {
   },
 }
 
-case node['platform_family']
-when 'rhel', 'fedora'
+if platform_family?('rhel', 'fedora')
   default['fail2ban']['services']['ssh-iptables'] = {
     'enabled' => false,
   }
