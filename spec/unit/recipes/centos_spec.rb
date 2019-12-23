@@ -24,7 +24,7 @@ end
 
 describe 'default recipe on CentOS 6' do
   let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '6.9')
+    runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '6')
     runner.node.default['packages']['fail2ban'] = {
       epoch: '0',
       version: '0.9.6',
@@ -49,7 +49,7 @@ end
 
 describe 'default recipe on CentOS 7' do
   let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '7.3.1611')
+    runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '7')
     runner.node.default['packages']['fail2ban'] = {
       epoch: '0',
       version: '0.9.7',
