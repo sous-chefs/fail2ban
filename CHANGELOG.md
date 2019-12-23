@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Simplify platform check logic
+- Fix several parts of the recipe that were not compatible with Amazon Linux
 
 ## 6.1.0 (2019-10-16)
 

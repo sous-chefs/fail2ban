@@ -55,7 +55,7 @@ default['fail2ban']['slack_channel'] = 'general'
 default['fail2ban']['filters'] = {}
 
 case node['platform_family']
-when 'rhel', 'fedora'
+when 'rhel', 'fedora', 'amazon'
   default['fail2ban']['auth_log'] = '/var/log/secure'
 when 'debian'
   default['fail2ban']['auth_log'] = '/var/log/auth.log'
@@ -74,7 +74,7 @@ default['fail2ban']['services'] = {
   },
 }
 
-if platform_family?('rhel', 'fedora')
+if platform_family?('rhel', 'fedora', 'amazon')
   default['fail2ban']['services']['ssh-iptables'] = {
     'enabled' => false,
   }
