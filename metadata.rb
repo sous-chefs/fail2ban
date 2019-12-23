@@ -10,6 +10,6 @@ version '6.1.0'
 
 depends 'yum-epel'
 
-%w(amazon centos debian fedora oracle redhat scientific ubuntu suse opensuse opensuseleap ).each do |os|
+%w(amazon centos debian fedora oracle redhat scientific ubuntu suse opensuseleap ).each do |os|
   supports os
 end
