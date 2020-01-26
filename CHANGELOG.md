@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Simplify platform check logic
 - Fix several parts of the recipe that were not compatible with Amazon Linux
+- Update all templates to use the same managed by chef warning
 
 ## 6.1.0 (2019-10-16)
 
