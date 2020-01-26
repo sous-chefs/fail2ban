@@ -52,6 +52,10 @@ workflows:
           suite: default-centos-7
           requires: *lint_and_unit
       - kitchen/dokken-single:
+          name: default-centos-8
+          suite: default-centos-8
+          requires: *lint_and_unit
+      - kitchen/dokken-single:
           name: default-fedora-latest
           suite: default-fedora-latest
           requires: *lint_and_unit
@@ -64,8 +68,8 @@ workflows:
           suite: default-ubuntu-1804
           requires: *lint_and_unit
       - kitchen/dokken-single:
-          name: default-opensuse-leap-42
-          suite: default-opensuse-leap-42
+          name: default-opensuse-leap-15
+          suite: default-opensuse-leap-15
           requires: *lint_and_unit
       - final:
           requires:
@@ -75,7 +79,8 @@ workflows:
             - default-debian-10
             - default-centos-6
             - default-centos-7
+            - default-centos-8
             - default-fedora-latest
             - default-ubuntu-1604
             - default-ubuntu-1804
-            - default-opensuse-leap-42
+            - default-opensuse-leap-15
