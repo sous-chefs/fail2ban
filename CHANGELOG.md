@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-- Migrated build system to github actions
+- Migrated build system to github actions for testing
 
 ## 6.2.0 (2020-01-26)
 
