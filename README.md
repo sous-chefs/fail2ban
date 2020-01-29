@@ -1,6 +1,10 @@
 # fail2ban Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/fail2ban.svg?branch=master)](https://travis-ci.org/chef-cookbooks/fail2ban) [![Cookbook Version](https://img.shields.io/cookbook/v/fail2ban.svg)](https://supermarket.chef.io/cookbooks/fail2ban)
+[![Cookbook Version](https://img.shields.io/cookbook/v/fail2ban.svg)](https://supermarket.chef.io/cookbooks/fail2ban)
+[![CI State](https://github.com/sous-chefs/fail2ban/workflows/ci/badge.svg)](https://github.com/sous-chefs/fail2ban/actions?query=workflow%3Aci)
+[![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
+[![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Installs and configures `fail2ban`, a utility that watches logs for failed login attempts and blocks repeat offenders with firewall rules. On Redhat systems this cookbook will enable the EPEL repository in order to retrieve the fail2ban package.
 
