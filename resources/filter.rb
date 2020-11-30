@@ -27,7 +27,7 @@ property :ignoreregex, [String, Array]
 action :create do
   template "/etc/fail2ban/filter.d/#{new_resource.filter}.conf" do
     cookbook new_resource.cookbook
-    source new_resource.filter
+    source new_resource.source
     owner 'root'
     group 'root'
     mode '0644'
