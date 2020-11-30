@@ -119,7 +119,6 @@ Then you will get notifications like this:
 
 > [hostname] Banned 🇳🇬 217.117.13.12 in the jail sshd after 5 attempts
 
-
 ## Resources
 
 There are 2 resources you can use to create `fail2ban_filter` and `fail2ban_jail`.
@@ -130,8 +129,8 @@ The filter resource manages custom filters that are stored in `/etc/fail2ban/fil
 #### Parameters
 fail2ban_filter accepts the following parameters:
 
-* failregex
-* ignoreregex
+- failregex
+- ignoreregex
 
 Example:
 
@@ -148,12 +147,12 @@ The filter resource manages custom jail definitions that are stored in `/etc/fai
 ### Parameters
 fail2ban_jail accepts the following parameters:
 
-* filter - Name of the filter to be used by the jail to detect matches.
-* logpath -  Path to the log file which is provided to the filter 
-* protocol - Protocol type [tcp, udp, all]. TCP Default.
-* ports - An array of port(s) to watch.
-* maxretry - Number of matches which triggers ban action.
-* ignoreips - An array of IPs to ignore.
+- filter - Name of the filter to be used by the jail to detect matches.
+- logpath -  Path to the log file which is provided to the filter.
+- protocol - Protocol type [tcp, udp, all]. TCP Default.
+- ports - An array of port(s) to watch.
+- maxretry - Number of matches which triggers ban action.
+- ignoreips - An array of IPs to ignore.
 
 Example:
 
