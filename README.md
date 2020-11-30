@@ -124,9 +124,11 @@ Then you will get notifications like this:
 There are 2 resources you can use to create `fail2ban_filter` and `fail2ban_jail`.
 
 ### fail2ban_filter
+
 The filter resource manages custom filters that are stored in `/etc/fail2ban/filters.d/`.
 
 #### Parameters
+
 fail2ban_filter accepts the following parameters:
 
 - failregex
@@ -142,9 +144,11 @@ end
 ```
 
 ### fail2ban_jail
+
 The filter resource manages custom jail definitions that are stored in `/etc/fail2ban/jail.d/`.
 
 ### Parameters
+
 fail2ban_jail accepts the following parameters:
 
 - filter - Name of the filter to be used by the jail to detect matches.
