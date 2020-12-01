@@ -119,6 +119,56 @@ Then you will get notifications like this:
 
 > [hostname] Banned 🇳🇬 217.117.13.12 in the jail sshd after 5 attempts
 
+## Resources
+
+There are 2 resources you can use to create `fail2ban_filter` and `fail2ban_jail`.
+
+### fail2ban_filter
+
+The filter resource manages custom filters that are stored in `/etc/fail2ban/filters.d/`.
+
+#### Parameters
+
+fail2ban_filter accepts the following parameters:
+
+- failregex
+- ignoreregex
+
+Example:
+
+```
+fail2ban_filter 'webmin-auth' do
+  failregex ["^%(__prefix_line)sNon-existent login as .+ from <HOST>\s*$",
+             "^%(__prefix_line)sInvalid login as .+ from <HOST>\s*$"]
+end
+```
+
+### fail2ban_jail
+
+The filter resource manages custom jail definitions that are stored in `/etc/fail2ban/jail.d/`.
+
+### Parameters
+
+fail2ban_jail accepts the following parameters:
+
+- filter - Name of the filter to be used by the jail to detect matches.
+- logpath -  Path to the log file which is provided to the filter.
+- protocol - Protocol type [tcp, udp, all]. TCP Default.
+- ports - An array of port(s) to watch.
+- maxretry - Number of matches which triggers ban action.
+- ignoreips - An array of IPs to ignore.
+
+Example:
+
+```
+fail2ban_jail 'ssh' do
+  ports %w(ssh)
+  filter 'sshd'
+  logpath node['fail2ban']['auth_log']
+  maxretry 3
+end
+```
+
 ## Issues related to rsyslog
 
 If you are using rsyslog parameter "$RepeatedMsgReduction on" in rsyslog.conf file

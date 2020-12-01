@@ -19,6 +19,7 @@
 #
 
 property :jail, String, name_property: true
+property :filter, String
 property :source, String, default: 'jail.erb'
 property :cookbook, String, default: 'fail2ban'
 property :logpath, String
@@ -26,11 +27,12 @@ property :protocol, String
 property :ports, Array, default: []
 property :maxretry, Integer
 property :ignoreips, Array
+property :priority, [String, Integer], default: '50'
 
 action :create do
-  template "/etc/fail2ban/jail.d/50-#{new_resource.jail}.conf" do
+  template "/etc/fail2ban/jail.d/#{new_resource.priority}-#{new_resource.jail}.conf" do
     cookbook new_resource.cookbook
-    source new_resource.filter
+    source new_resource.source
     owner 'root'
     group 'root'
     mode '0644'

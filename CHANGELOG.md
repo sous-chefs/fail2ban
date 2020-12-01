@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 - Remove deprecated platform in spec tests
+- fixed wrong property in `fail2ban_jail` and `fail2ban_filter` resources
+- added documentation for above changes
 
 ## 6.2.1 (2020-05-05)
 
