@@ -31,8 +31,10 @@ action :create do
     owner 'root'
     group 'root'
     mode '0644'
-    variables failregex: new_resource.failregex,
-              ignoreregex: new_resource.ignoreregex
+    variables(
+      failregex: new_resource.failregex,
+      ignoreregex: new_resource.ignoreregex
+    )
     notifies :reload, 'service[fail2ban]'
   end
 end
