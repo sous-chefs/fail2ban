@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- improves resource documentation in README
+- fixes jail resource to support priority property in delete action
+
 ## 6.3.0 - *2020-12-01*
 
 - Remove deprecated platform in spec tests

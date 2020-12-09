@@ -19,9 +19,9 @@
 #
 
 property :jail, String, name_property: true
-property :filter, String
 property :source, String, default: 'jail.erb'
 property :cookbook, String, default: 'fail2ban'
+property :filter, String
 property :logpath, String
 property :protocol, String
 property :ports, Array, default: []
@@ -36,19 +36,21 @@ action :create do
     owner 'root'
     group 'root'
     mode '0644'
-    variables name: new_resource.jail,
-              filter: new_resource.filter,
-              logpath: new_resource.logpath,
-              protocol: new_resource.protocol,
-              ports: new_resource.ports,
-              maxretry: new_resource.maxretry,
-              ignoreips: new_resource.ignoreips
+    variables(
+      name: new_resource.jail,
+      filter: new_resource.filter,
+      logpath: new_resource.logpath,
+      protocol: new_resource.protocol,
+      ports: new_resource.ports,
+      maxretry: new_resource.maxretry,
+      ignoreips: new_resource.ignoreips
+    )
     notifies :reload, 'service[fail2ban]'
   end
 end
 
 action :delete do
-  file "/etc/fail2ban/jail.d/50-#{new_resource.jail}.conf" do
+  file "/etc/fail2ban/jail.d/#{new_resource.priority}-#{new_resource.jail}.conf" do
     action :delete
     notifies :reload, 'service[fail2ban]'
   end

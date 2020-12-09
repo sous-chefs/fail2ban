@@ -121,22 +121,28 @@ Then you will get notifications like this:
 
 ## Resources
 
-There are 2 resources you can use to create `fail2ban_filter` and `fail2ban_jail`.
-
 ### fail2ban_filter
 
-The filter resource manages custom filters that are stored in `/etc/fail2ban/filters.d/`.
+Manages fail2ban filters in `/etc/fail2ban/filters.d/`.
 
-#### Parameters
+#### Actions
 
-fail2ban_filter accepts the following parameters:
+- `create` - Default. Creates a fail2ban filter.
+- `delete` - Deletes a fail2ban filter.
 
-- failregex
-- ignoreregex
+#### Properties
 
-Example:
+- `filter` - Specifies the name of the filter. This is the name property.
+- `source` - Specifies the template source. By default, this is set to `filter.erb`.
+- `cookbook` - Specifies the template cookbook. By default, this is set to `fail2ban`.
+- `failregex` - Specifies one or multiple regular expressions matching the failure.
+- `ignoreregex` - Specifies one or multiple regular expressions to ignore.
 
-```
+#### Examples
+
+Configure a file for webmin authentication with multiple regular expressions matching the failure.
+
+```ruby
 fail2ban_filter 'webmin-auth' do
   failregex ["^%(__prefix_line)sNon-existent login as .+ from <HOST>\s*$",
              "^%(__prefix_line)sInvalid login as .+ from <HOST>\s*$"]
@@ -145,22 +151,30 @@ end
 
 ### fail2ban_jail
 
-The filter resource manages custom jail definitions that are stored in `/etc/fail2ban/jail.d/`.
+Manages fail2ban jails in `/etc/fail2ban/jail.d/`.
 
-### Parameters
+#### Actions
 
-fail2ban_jail accepts the following parameters:
+- `create` - Default. Creates a fail2ban jail.
+- `delete` - Deletes a fail2ban jail.
 
-- filter - Name of the filter to be used by the jail to detect matches.
-- logpath -  Path to the log file which is provided to the filter.
-- protocol - Protocol type [tcp, udp, all]. TCP Default.
-- ports - An array of port(s) to watch.
-- maxretry - Number of matches which triggers ban action.
-- ignoreips - An array of IPs to ignore.
+#### Properties
 
-Example:
+- `jail` - Specifies the jail name. This is the name property.
+- `source` - Specifies the template source. By default, this is set to `jail.erb`.
+- `cookbook` - Specifies the template cookbook. By default, this is set to `fail2ban`.
+- `filter` - Specifies the name of the filter to be used by the jail to detect matches.
+- `logpath` - Specifies the path to the log file which is provided to the filter.
+- `protocol` - Specifies the protocol type, e.g. tcp, udp or all.
+- `ports` - Specifies an array of port(s) to watch.
+- `maxretry` - Specifies the number of matches which triggers ban action.
+- `ignoreips` - Specifies an array of IP addresses to ignore.
 
-```
+#### Examples
+
+Create a new fail2ban jail for SSH that uses existing filter `sshd` and which bans client after 3 tries.
+
+```ruby
 fail2ban_jail 'ssh' do
   ports %w(ssh)
   filter 'sshd'
