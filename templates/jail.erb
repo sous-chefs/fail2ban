@@ -5,9 +5,13 @@ enabled = true
 <% if @protocol -%>
 protocol = <%= @protocol %>
 <% end -%>
+<% unless @ports.empty? -%>
 port = <%= @ports.join(",") %>
+<% end -%>
 filter = <%= @filter %>
+<% if @logpath -%>
 logpath = <%= @logpath %>
+<% end -%>
 <% if @maxretry -%>
 maxretry = <%= @maxretry %>
 <% end -%>
