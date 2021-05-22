@@ -29,6 +29,8 @@ property :maxretry, Integer
 property :ignoreips, Array
 property :priority, [String, Integer], default: '50'
 
+unified_mode true
+
 action :create do
   template "/etc/fail2ban/jail.d/#{new_resource.priority}-#{new_resource.jail}.conf" do
     cookbook new_resource.cookbook

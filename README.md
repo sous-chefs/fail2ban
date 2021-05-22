@@ -19,7 +19,7 @@ Installs and configures `fail2ban`, a utility that watches logs for failed login
 
 ### Chef
 
-- Chef 13.0+
+- Chef 15.3+
 
 ### Cookbooks
 

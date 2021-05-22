@@ -24,6 +24,8 @@ property :cookbook, String, default: 'fail2ban'
 property :failregex, [String, Array]
 property :ignoreregex, [String, Array]
 
+unified_mode true
+
 action :create do
   template "/etc/fail2ban/filter.d/#{new_resource.filter}.conf" do
     cookbook new_resource.cookbook

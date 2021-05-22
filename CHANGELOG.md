@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Chef 17 updates: enable `unified_mode` on all resources
+- Bump required Chef Infra Client to >= 15.3
+
 ## 6.3.3 - *2021-06-01*
+
+- Standardise files with files in sous-chefs/repo-management
 
 ## 6.3.2 - *2021-02-26*
 
