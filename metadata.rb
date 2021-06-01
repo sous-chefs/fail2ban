@@ -6,7 +6,7 @@ description 'Installs and configures fail2ban'
 source_url 'https://github.com/chef-cookbooks/fail2ban'
 issues_url 'https://github.com/chef-cookbooks/fail2ban/issues'
 chef_version '>= 13.0'
-version '6.3.2'
+version '6.3.3'
 
 depends 'yum-epel'
 
