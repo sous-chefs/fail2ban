@@ -11,20 +11,15 @@ verifier:
   name: inspec
 
 platforms:
-  - name: amazonlinux
-    driver_config:
-      box: mvbcoding/awslinux
   - name: amazonlinux-2
-  - name: centos-6
   - name: centos-7
   - name: centos-8
   - name: debian-9
   - name: debian-10
-  - name: fedora-30
-  - name: fedora-31
+  - name: fedora-latest
   - name: opensuse-leap-15
-  - name: ubuntu-16.04
   - name: ubuntu-18.04
+  - name: ubuntu-20.04
 
 suites:
   - name: default

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'fail2ban::default converge' do
   let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
+    runner = ChefSpec::ServerRunner.new(platform: 'ubuntu')
     runner.node.default['fail2ban']['filters'] = {
       'nginx-proxy' => {
         'failregex' => ['^<HOST> -.*GET http.*'],
@@ -58,7 +58,7 @@ end
 
 describe 'fail2ban::default converge with a given slack webhook' do
   let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
+    runner = ChefSpec::ServerRunner.new(platform: 'ubuntu')
     runner.node.default['fail2ban'] = {
       filters: {
         'nginx-proxy' => {
