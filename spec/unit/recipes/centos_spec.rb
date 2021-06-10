@@ -3,13 +3,6 @@ require 'spec_helper'
 describe 'default recipe on CentOS' do
   let(:chef_run) do
     runner = ChefSpec::ServerRunner.new(platform: 'centos')
-    runner.node.default['packages']['fail2ban'] = {
-      epoch: '0',
-      version: '0.9.7',
-      release: '1.el7',
-      installdate: '1501563600',
-      arch: 'noarch',
-    }
     runner.converge('fail2ban::default')
   end
 

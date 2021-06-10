@@ -35,32 +35,28 @@ Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf
 
 This cookbook has a set of configuration options for fail2ban
 
-- default['fail2ban']['loglevel'] = 'INFO'
-- default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'
-- default['fail2ban']['syslogsocket'] = 'auto'
-- default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'
-- default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'
-- default['fail2ban']['dbfile'] = '/var/lib/fail2ban/fail2ban.sqlite3'
-- default['fail2ban']['dbpurgeage'] = 86_400
-
-The `CRITICAL` and `NOTICE` log levels are only available on fail2ban >= 0.9.x. If they are used on a system with an older version of fail2ban, they will be mapped to `ERROR` and `INFO` respectively.
-
-The `syslogsocket`, `dbfile`, and `dbpurgeage` options are only applicable to fail2ban >= 0.9.x
+- `default['fail2ban']['loglevel'] = 'INFO'`
+- `default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'`
+- `default['fail2ban']['syslogsocket'] = 'auto'`
+- `default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'`
+- `default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'`
+- `default['fail2ban']['dbfile'] = '/var/lib/fail2ban/fail2ban.sqlite3'`
+- `default['fail2ban']['dbpurgeage'] = 86_400`
 
 This cookbook has a set of configuration options for jail.conf
 
-- default['fail2ban']['ignoreip'] = '127.0.0.1/8'
-- default['fail2ban']['findtime'] = 600
-- default['fail2ban']['bantime'] = 300
-- default['fail2ban']['maxretry'] = 5
-- default['fail2ban']['backend'] = 'polling'
-- default['fail2ban']['email'] = 'root@localhost'
-- default['fail2ban']['sendername'] = 'Fail2Ban'
-- default['fail2ban']['action'] = 'action_'
-- default['fail2ban']['banaction'] = 'iptables-multiport'
-- default['fail2ban']['mta'] = 'sendmail'
-- default['fail2ban']['protocol'] = 'tcp'
-- default['fail2ban']['chain'] = 'INPUT'
+- `default['fail2ban']['ignoreip'] = '127.0.0.1/8'`
+- `default['fail2ban']['findtime'] = 600`
+- `default['fail2ban']['bantime'] = 300`
+- `default['fail2ban']['maxretry'] = 5`
+- `default['fail2ban']['backend'] = 'polling'`
+- `default['fail2ban']['email'] = 'root@localhost'`
+- `default['fail2ban']['sendername'] = 'Fail2Ban'`
+- `default['fail2ban']['action'] = 'action_'`
+- `default['fail2ban']['banaction'] = 'iptables-multiport'`
+- `default['fail2ban']['mta'] = 'sendmail'`
+- `default['fail2ban']['protocol'] = 'tcp'`
+- `default['fail2ban']['chain'] = 'INPUT'`
 
 This cookbook makes use of a hash to compile the jail.local-file and filter config files:
 

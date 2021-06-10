@@ -50,7 +50,6 @@ end
 
 template '/etc/fail2ban/fail2ban.conf' do
   source 'fail2ban.conf.erb'
-  variables(lazy { { f2b_version: node['packages']['fail2ban']['version'] } })
   notifies :restart, 'service[fail2ban]'
 end
 

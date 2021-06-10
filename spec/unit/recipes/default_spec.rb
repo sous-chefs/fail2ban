@@ -9,11 +9,6 @@ describe 'fail2ban::default converge' do
         'ignoreregex' => [],
       },
     }
-    runner.node.default['packages']['fail2ban'] = {
-      version: '0.9.3-1',
-      arch: 'all',
-    }
-
     runner.converge('fail2ban::default')
   end
 
@@ -69,11 +64,6 @@ describe 'fail2ban::default converge with a given slack webhook' do
       slack_channel: 'infra',
       slack_webhook: 'https://hooks.slack.com/services/A123BCD4E/FG5HI6KLM/7n8opqrsT9UVWxyZ0AbCdefG',
     }
-    runner.node.default['packages']['fail2ban'] = {
-      version: '0.9.3-1',
-      arch: 'all',
-    }
-
     runner.converge('fail2ban::default')
   end
 

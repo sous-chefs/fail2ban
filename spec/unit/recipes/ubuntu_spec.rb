@@ -3,7 +3,6 @@ require 'spec_helper'
 describe 'default recipe on Ubuntu' do
   let(:chef_run) do
     runner = ChefSpec::ServerRunner.new(platform: 'ubuntu')
-    runner.node.default['packages']['fail2ban'] = { version: '0.10.2-2', arch: 'all' }
     runner.converge('fail2ban::default')
   end
 
