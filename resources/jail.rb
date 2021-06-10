@@ -18,16 +18,17 @@
 # limitations under the License.
 #
 
-property :jail, String, name_property: true
-property :source, String, default: 'jail.erb'
+property :bantime, [Integer, String]
 property :cookbook, String, default: 'fail2ban'
 property :filter, String
-property :logpath, String
-property :protocol, String
-property :ports, Array, default: []
-property :maxretry, Integer
 property :ignoreips, Array
+property :jail, String, name_property: true
+property :logpath, String
+property :maxretry, Integer
+property :ports, Array, default: []
 property :priority, [String, Integer], default: '50'
+property :protocol, String
+property :source, String, default: 'jail.erb'
 
 unified_mode true
 
@@ -39,13 +40,14 @@ action :create do
     group 'root'
     mode '0644'
     variables(
-      name: new_resource.jail,
+      bantime: new_resource.bantime,
       filter: new_resource.filter,
+      ignoreips: new_resource.ignoreips,
       logpath: new_resource.logpath,
-      protocol: new_resource.protocol,
-      ports: new_resource.ports,
       maxretry: new_resource.maxretry,
-      ignoreips: new_resource.ignoreips
+      name: new_resource.jail,
+      ports: new_resource.ports,
+      protocol: new_resource.protocol
     )
     notifies :reload, 'service[fail2ban]'
   end
