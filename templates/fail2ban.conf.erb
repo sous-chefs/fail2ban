@@ -8,14 +8,6 @@
 
 # Option: loglevel
 # Notes.: Set the log level output.
-<% if Gem::Version.new(@f2b_version) < Gem::Version.new('0.9') -%>
-#         1 = ERROR
-#         2 = WARN
-#         3 = INFO
-#         4 = DEBUG
-# Values: [ NUM ]  Default: 1
-loglevel = <%= node['fail2ban']['loglevel'].sub(/CRITICAL|ERROR/, '1').sub(/WARNING/, '2').sub(/NOTICE|INFO/, '3').sub(/DEBUG/, '4') %>
-<% else -%>
 #         CRITICAL
 #         ERROR
 #         WARNING
@@ -24,7 +16,6 @@ loglevel = <%= node['fail2ban']['loglevel'].sub(/CRITICAL|ERROR/, '1').sub(/WARN
 #         DEBUG
 # Values: [ LEVEL ]  Default: ERROR
 loglevel = <%= node['fail2ban']['loglevel'] %>
-<% end -%>
 
 # Option: logtarget
 # Notes.: Set the log target. This could be a file, SYSLOG, STDERR or STDOUT.
@@ -36,13 +27,11 @@ loglevel = <%= node['fail2ban']['loglevel'] %>
 # Values: [ STDOUT | STDERR | SYSLOG | FILE ]  Default: STDERR
 logtarget = <%= node['fail2ban']['logtarget'] %>
 
-<% if Gem::Version.new(@f2b_version) >= Gem::Version.new('0.9') -%>
 # Option: syslogsocket
 # Notes: Set the syslog socket file. Only used when logtarget is SYSLOG
 #        auto uses platform.system() to determine predefined paths
 # Values: [ auto | FILE ]  Default: auto
 syslogsocket = <%= node['fail2ban']['syslogsocket'] %>
-<% end -%>
 
 # Option: socket
 # Notes.: Set the socket file. This is used to communicate with the daemon. Do
@@ -57,7 +46,6 @@ socket = <%= node['fail2ban']['socket'] %>
 # Values: [ FILE ]  Default: /var/run/fail2ban/fail2ban.pid
 pidfile = <%= node['fail2ban']['pidfile'] %>
 
-<% if Gem::Version.new(@f2b_version) >= Gem::Version.new('0.9') -%>
 # Options: dbfile
 # Notes.: Set the file for the fail2ban persistent data to be stored.
 #         A value of ":memory:" means database is only stored in memory
@@ -70,4 +58,3 @@ dbfile = <%= node['fail2ban']['dbfile'] %>
 # Notes.: Sets age at which bans should be purged from the database
 # Values: [ SECONDS ] Default: 86400 (24hours)
 dbpurgeage = <%= node['fail2ban']['dbpurgeage'] %>
-<% end -%>
