@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Document missing service attributes
+
 ## 7.0.3 - *2022-08-07*
 
 - CI: Switch to shared lint-unit workflow

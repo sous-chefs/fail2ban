@@ -85,14 +85,17 @@ default['fail2ban']['services'] = {
 
 The following attributes can be used per service:
 
-- enabled
-- port
-- filter
-- logpath
-- maxretry
-- protocol
+- backend
 - banaction
 - bantime
+- enabled
+- filter
+- findtime
+- ignorecommand
+- logpath
+- maxretry
+- port
+- protocol
 
 Creating custom fail2ban filters:
 
