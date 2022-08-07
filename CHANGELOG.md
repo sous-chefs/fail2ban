@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- CI: Switch to shared lint-unit workflow
+
 ## 7.0.2 - *2022-02-17*
 
 - Standardise files with files in sous-chefs/repo-management
