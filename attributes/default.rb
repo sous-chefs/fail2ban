@@ -79,3 +79,8 @@ if platform_family?('rhel', 'fedora', 'amazon')
     'enabled' => false,
   }
 end
+
+if platform?('amazon') && platform_version.to_i >= 2023
+  default['yum']['epel']['enabled'] = false
+  default['yum']['epel']['make_cache'] = false
+end

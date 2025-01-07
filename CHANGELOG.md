@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Amazon Linux 2023 does not officially support EPEL nor is it required for the fail2ban package
+
 ## 7.0.24 - *2024-11-18*
 
 Standardise files with files in sous-chefs/repo-management
