@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+Allow `node['fail2ban']['ignoreip']` attribute be defined as either a String or an Array.
+
 ## 7.0.24 - *2024-11-18*
 
 Standardise files with files in sous-chefs/repo-management
