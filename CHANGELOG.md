@@ -222,17 +222,17 @@ Standardise files with files in sous-chefs/repo-management
 
 ## v2.2.0
 
-- # 15 - Fix small typo in README.md for smtp
+- 15 - Fix small typo in README.md for smtp
 
-- # 16 - Support custom fail2ban filters
+- 16 - Support custom fail2ban filters
 
-- # 21 - Service and defaults improvements, Fedora support
+- 21 - Service and defaults improvements, Fedora support
 
 ## v2.1.2
 
 ### Improvement
 
-- **[COOK-3899](https://tickets.chef.io/browse/COOK-3899)** - Allow action override in service block
+- Allow action override in service block
 
 ## v2.1.0
 
@@ -254,15 +254,15 @@ Locking yum dependency to '< 3'
 
 ### New Feature
 
-- **[COOK-3383](https://tickets.chef.io/browse/COOK-3383)** - Add clarifying caveat about rsyslog in README
+- Add clarifying caveat about rsyslog in README
 
 ### Bug
 
-- **[COOK-3249](https://tickets.chef.io/browse/COOK-3249)** - Fix default `jail.conf` on CentOS
+- Fix default `jail.conf` on CentOS
 
 ### Improvement
 
-- **[COOK-2748](https://tickets.chef.io/browse/COOK-2748)** - Handle `/etc.init.d/fail2ban status` for older versions
+- Handle `/etc.init.d/fail2ban status` for older versions
 
 ## v1.2.2
 
