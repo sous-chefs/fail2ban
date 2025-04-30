@@ -64,7 +64,7 @@ This cookbook has a set of configuration options for jail.conf
 
 This cookbook makes use of a hash to compile the jail.local-file and filter config files:
 
-```
+```ruby
 default['fail2ban']['services'] = {
   'ssh' => {
         "enabled" => "true",
@@ -99,7 +99,7 @@ The following attributes can be used per service:
 
 Creating custom fail2ban filters:
 
-```
+```ruby
 default['fail2ban']['filters'] = {
   'nginx-proxy' => {
         "failregex" => ["^<HOST> -.*GET http.*"],
@@ -197,7 +197,7 @@ This rsyslog parameter is default ON for ubuntu 12.04 LTS for example.
 
 ## Contributors
 
-This project exists thanks to all the people who [contribute.](https://opencollective.com/sous-chefs/contributors.svg?width=890&button=false)
+This project exists thanks to all the people who contribute.
 
 ### Backers
 
