@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Standardise files with files in sous-chefs/repo-management
 Standardise files with files in sous-chefs/repo-management
 
+## [7.1.2](https://github.com/sous-chefs/fail2ban/compare/7.1.1...v7.1.2) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#144](https://github.com/sous-chefs/fail2ban/issues/144)) ([740454b](https://github.com/sous-chefs/fail2ban/commit/740454bc4e885535eb9dbff5429ea08cb66b48d3))
+
 ## 7.1.0 - *2025-04-30*
 
 Allow `node['fail2ban']['ignoreip']` attribute be defined as either a String or an Array.
