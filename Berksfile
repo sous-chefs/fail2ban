@@ -2,6 +2,6 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-group :test do
+group :integration do
   cookbook 'test', path: 'test/cookbooks/test'
 end
