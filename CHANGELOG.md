@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Standardise files with files in sous-chefs/repo-management
 Standardise files with files in sous-chefs/repo-management
 
+## [8.0.0](https://github.com/sous-chefs/fail2ban/compare/v7.1.2...v8.0.0) (2026-04-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate fail2ban to resources ([#150](https://github.com/sous-chefs/fail2ban/issues/150))
+
+### Features
+
+* migrate fail2ban to resources ([#150](https://github.com/sous-chefs/fail2ban/issues/150)) ([4fab454](https://github.com/sous-chefs/fail2ban/commit/4fab454ceca95130452d55375c4778d82750144a))
+
 ## [7.1.2](https://github.com/sous-chefs/fail2ban/compare/7.1.1...v7.1.2) (2025-10-16)
 
 
