@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Installs and configures `fail2ban`, a utility that watches logs for failed login attempts and blocks repeat offenders with firewall rules. On Redhat systems this cookbook will enable the EPEL repository in order to retrieve the fail2ban package.
+Installs and configures `fail2ban`, a utility that watches logs for failed login attempts and blocks repeat offenders with firewall rules. On RHEL-family systems this cookbook can enable the EPEL repository in order to retrieve the fail2ban package.
 
 ## Maintainers
 
@@ -16,10 +16,15 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Platforms
 
-- Debian/Ubuntu
-- RHEL/CentOS/Scientific/Amazon/Oracle
+- AlmaLinux 8+
+- Amazon Linux 2023+
+- CentOS Stream 9+
+- Debian 12+
 - Fedora
-- OpenSUSE
+- Oracle Linux 8+
+- Red Hat Enterprise Linux 8+
+- Rocky Linux 8+
+- Ubuntu 22.04+
 
 ### Chef
 
@@ -29,104 +34,44 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 - yum-epel
 
-## Recipes
+## Migration
 
-### default
-
-Installs the fail2ban package, manages 2 templates: `/etc/fail2ban/fail2ban.conf` and `/etc/fail2ban/jail.conf`, and manages the fail2ban service.
-
-## Attributes
-
-This cookbook has a set of configuration options for fail2ban
-
-- `default['fail2ban']['loglevel'] = 'INFO'`
-- `default['fail2ban']['logtarget'] = '/var/log/fail2ban.log'`
-- `default['fail2ban']['syslogsocket'] = 'auto'`
-- `default['fail2ban']['socket'] = '/var/run/fail2ban/fail2ban.sock'`
-- `default['fail2ban']['pidfile'] = '/var/run/fail2ban/fail2ban.pid'`
-- `default['fail2ban']['dbfile'] = '/var/lib/fail2ban/fail2ban.sqlite3'`
-- `default['fail2ban']['dbpurgeage'] = 86_400`
-
-This cookbook has a set of configuration options for jail.conf
-
-- `default['fail2ban']['ignoreip'] = '127.0.0.1/8'`
-- `default['fail2ban']['findtime'] = 600`
-- `default['fail2ban']['bantime'] = 300`
-- `default['fail2ban']['maxretry'] = 5`
-- `default['fail2ban']['backend'] = 'polling'`
-- `default['fail2ban']['email'] = 'root@localhost'`
-- `default['fail2ban']['sendername'] = 'Fail2Ban'`
-- `default['fail2ban']['action'] = 'action_'`
-- `default['fail2ban']['banaction'] = 'iptables-multiport'`
-- `default['fail2ban']['mta'] = 'sendmail'`
-- `default['fail2ban']['protocol'] = 'tcp'`
-- `default['fail2ban']['chain'] = 'INPUT'`
-
-This cookbook makes use of a hash to compile the jail.local-file and filter config files:
-
-```ruby
-default['fail2ban']['services'] = {
-  'ssh' => {
-        "enabled" => "true",
-        "port" => "ssh",
-        "filter" => "sshd",
-        "logpath" => node['fail2ban']['auth_log'],
-        "maxretry" => "6"
-     },
-  'smtp' => {
-        "enabled" => "true",
-        "port" => "smtp",
-        "filter" => "smtp",
-        "logpath" => node['fail2ban']['auth_log'],
-        "maxretry" => "6"
-     }
-}
-```
-
-The following attributes can be used per service:
-
-- backend
-- banaction
-- bantime
-- enabled
-- filter
-- findtime
-- ignorecommand
-- logpath
-- maxretry
-- port
-- protocol
-
-Creating custom fail2ban filters:
-
-```ruby
-default['fail2ban']['filters'] = {
-  'nginx-proxy' => {
-        "failregex" => ["^<HOST> -.*GET http.*"],
-        "ignoreregex" => []
-     },
-}
-```
-
-In the case you would like to get Slack notifications on IP addresses banned/unbanned, this cookbook supports it by setting the following attributes:
-
-```ruby
-# A Slack webhook looks like this:
-# https://hooks.slack.com/services/A123BCD4E/FG5HI6KLM/7n8opqrsT9UVWxyZ0AbCdefG
-default['fail2ban']['slack_webhook'] = nil
-# Then setting the Slack channel name without the hashtag (#)
-default['fail2ban']['slack_channel'] = 'general'
-```
-
-Then you will get notifications like this:
-
-> [hostname] Banned 🇳🇬 217.117.13.12 in the jail sshd after 5 attempts
+This cookbook no longer ships top-level recipes or attributes. See [migration.md](migration.md) for old `fail2ban::default` recipe and `node['fail2ban']` attribute mappings.
 
 ## Resources
 
+### fail2ban_install
+
+Installs or removes the fail2ban package. See [documentation/fail2ban_install.md](documentation/fail2ban_install.md).
+
+```ruby
+fail2ban_install 'default'
+```
+
+### fail2ban_config
+
+Manages `/etc/fail2ban/fail2ban.conf`, `/etc/fail2ban/jail.local`, optional Slack notification files, and compatibility hashes for filters and services. See [documentation/fail2ban_config.md](documentation/fail2ban_config.md).
+
+```ruby
+fail2ban_config 'default' do
+  ignoreip %w(127.0.0.1/8 10.0.0.0/8)
+  maxretry 3
+end
+```
+
+### fail2ban_service
+
+Manages the fail2ban service. See [documentation/fail2ban_service.md](documentation/fail2ban_service.md).
+
+```ruby
+fail2ban_service 'default' do
+  action [:enable, :start]
+end
+```
+
 ### fail2ban_filter
 
-Manages fail2ban filters in `/etc/fail2ban/filters.d/`.
+Manages fail2ban filters in `/etc/fail2ban/filter.d/`. See [documentation/fail2ban_filter.md](documentation/fail2ban_filter.md).
 
 #### Actions
 
@@ -154,7 +99,7 @@ end
 
 ### fail2ban_jail
 
-Manages fail2ban jails in `/etc/fail2ban/jail.d/`.
+Manages fail2ban jails in `/etc/fail2ban/jail.d/`. See [documentation/fail2ban_jail.md](documentation/fail2ban_jail.md).
 
 #### Actions
 
@@ -181,7 +126,7 @@ Create a new fail2ban jail for SSH that uses existing filter `sshd` and which ba
 fail2ban_jail 'ssh' do
   ports %w(ssh)
   filter 'sshd'
-  logpath node['fail2ban']['auth_log']
+  logpath '/var/log/auth.log'
   maxretry 3
 end
 ```
