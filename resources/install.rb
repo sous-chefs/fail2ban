@@ -9,9 +9,10 @@ property :manage_epel, [true, false], default: lazy { platform_family?('rhel') }
 property :manage_epel_next, [true, false], default: lazy { !(platform?('centos') && node['platform_version'].to_i >= 10) }
 
 action :install do
-  node.default['yum']['epel-next']['managed'] = false unless new_resource.manage_epel_next
-
-  include_recipe 'yum-epel' if new_resource.manage_epel
+  yum_epel 'default' do
+    repositories ['epel'] unless new_resource.manage_epel_next
+    only_if { new_resource.manage_epel }
+  end
 
   ohai 'reload package list' do
     plugin 'packages'
